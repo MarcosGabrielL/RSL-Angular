@@ -1,0 +1,1975 @@
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.1/tailwind.min.css'>
+ 
+  <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+    
+  <link rel='stylesheet' href='https://dsgov.estaleiro.serpro.gov.br/assets/design-system/dist/dsgov.css'>
+<link rel='stylesheet' href='https://cdn.dsgovserprodesign.estaleiro.serpro.gov.br/design-system/fonts/rawline/css/rawline.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css'>
+
+
+<style>
+body {
+  background: rgb(244,244,244) ;
+  margin: 0;
+  font-family: "Open Sans", Helvetica Neue, Helvetica, Arial, sans-serif;
+  padding-left: 64px;
+  height: 100%;
+}
+a {
+        color: #4c20b1 !important;
+}
+div[ng-view]{
+     height: 100%;
+}
+html{
+  background: rgb(244,244,244);
+}
+header{
+    margin-right: 2%;
+    margin-left: 86px;
+    border-radius: 5px;
+    }
+main {
+  height: 100%;
+    width: 100%;
+    background: rgb(244,244,244) ;
+    overflow: hidden;
+}
+main .helper {
+ background: #fff;
+    position: relative;
+    top: 0%;
+    left: 0%;
+    width: 73%;
+    height: 100%;
+    text-align: center;
+    border-radius: 0px 5px 5px 0px;
+    font-size: 2em;
+    font-weight: bold;
+    z-index: 4;
+    display: inline-block;
+}
+main .helper span {
+  color: rgba(0, 0, 0, 0.2);
+  font-size: 0.4em;
+  display: block;
+}
+.menu {
+  background: #e8e8e8;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  outline: none;
+    width: 64px;
+}
+.menu-right {
+ background: rgba(255,255,255);
+    height: 100%;
+    position: relative;
+    /* top: 142px; */
+    float: right;
+    margin-right: 2%;
+    margin-top: 1.7%;
+    right: 0;
+    z-index: 5;
+    outline: none;
+    width: 23%;
+    border-radius: 5px;
+}
+.menu .avatar {
+     background-color: #383a45;
+    background-image: linear-gradient(
+135deg, #4f5261 0%, #383a45 50%);
+    text-align: center;
+}
+.menu .avatar img {
+  width: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid ##fff;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.2);
+}
+.menu .avatar h2 {
+  font-weight: normal;
+  margin-bottom: 0;
+}
+.menu ul {
+      list-style: none;
+    padding: 0.5em 0;
+    /* margin: 0; */
+    /* margin-top: 121px; */
+    /* margin-left: 5px; */
+    color: #383a45;
+}
+.menu ul li {
+   padding: 23px 0 40px 6px;
+    font-size: 0.70em;
+    font-weight: regular;
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 22px;
+    transition: all 0.15s linear;
+    cursor: pointer;
+    display: inline-block;
+        color: #f8f9fb;
+
+}
+.menu ul li.icon-dashboard {
+  background-image: url("https://cdn-icons-png.flaticon.com/512/56/56992.png");
+}
+.menu ul li.icon-customers {
+  background-image: url("https://cdn-icons-png.flaticon.com/512/56/56986.png");
+}
+.menu ul li.icon-users {
+  background-image: url("https://cdn-icons-png.flaticon.com/512/56/56937.png");
+}
+.menu ul li.icon-settings {
+  background-image: url("https://cdn-icons-png.flaticon.com/512/56/56887.png");
+}
+.menu ul li:hover {
+  
+}
+.menu ul li:focus {
+  outline: none;
+}
+
+.br-header {
+  --header-background: var(--color-secondary-01);
+  --header-shadow: var(--surface-shadow-sm);
+  --header-padding: var(--header-padding-medium);
+  --header-padding-small: var(--spacing-scale-base);
+  --header-padding-medium: var(--spacing-scale-2x);
+  --header-padding-large: var(--spacing-scale-3x);
+  --header-logo-size: var(--header-logo-medium);
+  --header-logo-small: 16px;
+  --header-logo-medium: 24px;
+  --header-logo-large: 40px;
+  --header-sign-color: var(--color-secondary-07);
+  --header-title-size: var(--font-size-scale-base);
+  --header-title-color: var(--color-secondary-09);
+  --header-subtitle-size: var(--font-size-scale-down-01);
+  --header-subtitle-color: var(--color-secondary-07);
+  --header-logo-desktop-width: 120px;
+  --header-logo-desktop-height: 48px;
+  --header-logo-compact: 60px;
+  --header-logo-compact-height: 32px;
+  --header-logo-mobile-width: 80px;
+  --header-logo-mobile-height: 40px;
+  --header-sticky-z-index: var(--z-index-layer-2);
+  background: var(--header-background);
+  box-shadow: var(--header-shadow);
+  padding: var(--header-padding) 0;
+  position: relative;
+}
+.br-header .header-top,
+.br-header .header-bottom {
+  display: flex;
+}
+.br-header .header-top {
+  justify-content: flex-end;
+}
+.br-header .header-bottom {
+  justify-content: space-between;
+  margin-top: var(--header-padding-small);
+}
+@media (min-width: 576px) {
+  .br-header {
+    --header-padding: var(--header-padding-medium);
+  }
+}
+.br-header.small {
+  --header-padding: var(--header-padding-small);
+}
+.br-header.medium {
+  --header-padding: var(--header-padding-medium);
+}
+.br-header.large {
+  --header-padding: var(--header-padding-large);
+}
+.br-header .header-logo {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  float: left;
+}
+.br-header .header-logo img {
+  margin-right: var(--spacing-scale-base);
+  max-height: var(--header-logo-size);
+}
+.br-header .header-logo .br-divider {
+  display: none;
+}
+.br-header .header-logo .header-sign {
+  color: var(--header-sign-color);
+  display: none;
+  font-weight: 500;
+  overflow: hidden;
+}
+.br-header[data-no-logo] .header-logo img {
+  display: none;
+}
+.br-header[data-no-sign] .header-logo .header-sign {
+  display: none;
+}
+@media (min-width: 576px) {
+  .br-header .header-logo {
+    --header-logo-size: var(--header-logo-large);
+    margin: 0;
+  }
+  .br-header .header-logo .br-divider {
+    display: block;
+  }
+  .br-header .header-logo .header-sign {
+    display: box;
+    display: block;
+    -webkit-line-clamp: 2;
+  }
+}
+.br-header .header-actions {
+  --focus-offset: calc(var(--spacing-scale-half) * -1);
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+}
+.br-header .header-actions .dropdown.show .br-list {
+  display: block;
+  z-index: var(--z-index-layer-1);
+}
+.br-header .header-actions .dropdown.show .br-button.active .svg-inline--fa,
+.br-header .header-actions .dropdown.show .br-button.active .fa,
+.br-header .header-actions .dropdown.show .br-button.active .fab,
+.br-header .header-actions .dropdown.show .br-button.active .fad,
+.br-header .header-actions .dropdown.show .br-button.active .fal,
+.br-header .header-actions .dropdown.show .br-button.active .far,
+.br-header .header-actions .dropdown.show .br-button.active .fas {
+  transform: rotate(180deg);
+}
+.br-header .header-actions .dropdown.show .br-notification {
+  display: block;
+  right: -16px;
+  width: 100vw;
+  z-index: var(--z-index-layer-1);
+}
+.br-header .header-actions .dropdown:not(.show) .br-notification {
+  display: none;
+}
+@media (max-width: 1279px) {
+  .br-header .header-actions .dropdown:not(.show) .br-list .{
+    display: none;
+  }
+  .menu-right{
+    display: none;
+  }
+  main .helper {
+    width: 98%;
+  }
+}
+/*MOBILE RESONSIVE*/
+@media only screen and (max-width:  480px) {
+  
+  .br-header {
+      display: none;
+      }
+  .menu {
+    display: none;
+  }
+  body{
+    padding-left: 0;
+  }
+  main .helper {
+    width: 100%;
+  }
+  main .navbar {
+     display: block;
+  }
+}
+/*MOBILE RESONSIVE*/
+.br-header .header-actions .header-links,
+.br-header .header-actions .header-functions {
+  --focus-offset: calc(var(--spacing-scale-half) * -1);
+}
+.br-header .header-actions .header-links .br-list,
+.br-header .header-actions .header-functions .br-list {
+  background: var(--header-background);
+  left: -4em;
+}
+.br-header .header-actions .header-links .br-list .br-item,
+.br-header .header-actions .header-functions .br-list .br-item {
+  white-space: nowrap;
+}
+.br-header .header-actions .header-links ul,
+.br-header .header-actions .header-functions ul {
+  display: none;
+}
+.br-header .header-actions .header-functions .br-list .br-item {
+  padding: 0;
+}
+.br-header .header-actions .header-functions .br-list .br-button {
+  --button-size: auto;
+  --button-font-size: var(--font-size-scale-base);
+  --button-font-weight: var(--item-font-weight);
+  border-radius: 0;
+  font-size: var(--font-size-scale-base);
+  font-weight: var(--item-font-weight);
+  justify-content: flex-start;
+  padding: var(--spacing-scale-base) var(--spacing-scale-2x);
+  width: 100%;
+}
+.br-header .header-actions .header-functions .br-list .br-button .text {
+  margin-left: var(--spacing-scale-2x);
+}
+.br-header .header-actions .header-functions ul {
+  display: none;
+}
+.br-header .header-actions .header-login {
+  --focus-offset: 0;
+  margin-left: var(--spacing-scale-base);
+}
+.br-header .header-actions .sign-in {
+  --button-padding: 0 var(--spacing-scale-2x);
+}
+.br-header .header-actions .avatar {
+  align-items: center;
+  display: flex;
+}
+.br-header .header-actions .avatar .br-list {
+  min-width: 200px;
+  right: 0;
+  top: 100%;
+}
+.br-header[data-no-links] .header-actions .header-links {
+  display: none;
+}
+.br-header[data-no-functions] .header-actions .header-functions {
+  display: none;
+}
+.br-header[data-no-login] .header-actions .header-login {
+  display: none;
+}
+@media (min-width: 576px) {
+  .br-header .header-actions .header-links .br-list,
+.br-header .header-actions .header-functions .br-list {
+    background: var(--header-background);
+    left: auto;
+    right: 0;
+  }
+  .br-header .header-actions .header-links .br-notification,
+.br-header .header-actions .header-functions .br-notification {
+    width: 100vw;
+  }
+}
+@media (min-width: 1280px) {
+  .br-header .header-actions .header-links [data-toggle=dropdown],
+.br-header .header-actions .header-functions [data-toggle=dropdown] {
+    display: none;
+  }
+  .br-header .header-actions .header-links .br-list,
+.br-header .header-actions .header-functions .br-list {
+    box-shadow: none;
+    display: flex;
+    position: static;
+  }
+  .br-header .header-actions .header-links .br-list .header,
+.br-header .header-actions .header-functions .br-list .header {
+    display: none;
+  }
+  .br-header .header-actions .header-links .br-list .br-item,
+.br-header .header-actions .header-functions .br-list .br-item {
+    --item-padding-x: var(--spacing-scale-base);
+    margin-right: var(--spacing-scale-base);
+  }
+  .br-header .header-actions .header-links .br-list .br-notification,
+.br-header .header-actions .header-functions .br-list .br-notification {
+    width: 50vw;
+  }
+  .br-header .header-actions .header-functions .br-list .br-button {
+    --button-size: var(--button-small);
+    border-radius: 50%;
+    justify-content: center;
+    padding: 0;
+    width: var(--button-size);
+  }
+  .br-header .header-actions .header-functions .br-list .br-button .text {
+    display: none;
+  }
+  .br-header .header-actions .header-search-trigger {
+    display: none;
+  }
+}
+.br-header .header-menu {
+  align-items: center;
+  display: flex;
+  flex: 1;
+}
+.br-header .header-menu .header-menu-trigger + .header-info {
+  margin-left: var(--spacing-scale-2x);
+}
+.br-header .header-menu .header-title {
+  color: var(--header-title-color);
+  display: box;
+  font-size: var(--header-title-size);
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.br-header .header-menu .header-subtitle {
+  color: var(--header-subtitle-color);
+  display: none;
+  font-size: var(--header-subtitle-size);
+  font-weight: 500;
+  margin-top: var(--spacing-scale-half);
+}
+.br-header[data-no-subtitle] .header-menu .header-subtitle {
+  display: none;
+}
+@media (min-width: 576px) {
+  .br-header .header-menu {
+    --header-title-size: var(--font-size-scale-up-02);
+    align-items: flex-start;
+  }
+  .br-header .header-menu .header-menu-trigger {
+    margin-top: 3px;
+  }
+  .br-header .header-menu .header-info {
+    padding-top: var(--spacing-scale-half);
+  }
+  .br-header .header-menu .header-subtitle {
+    display: block;
+  }
+}
+@media (min-width: 1280px) {
+  .br-header .header-menu {
+    --header-title-size: var(--font-size-scale-up-03);
+    --header-subtitle-size: var(--font-size-scale-base);
+  }
+  .br-header .header-menu .header-info {
+    padding-top: 0;
+  }
+}
+.br-header .header-search, .br-header.compact .header-search {
+  align-items: center;
+  background: var(--header-background);
+  bottom: 0;
+  display: none;
+  left: 0;
+  padding: 0 var(--spacing-scale-2x);
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.br-header .header-search .br-input, .br-header.compact .header-search .br-input {
+  align-items: center;
+  display: flex;
+  flex: 1;
+}
+.br-header .header-search .br-input label, .br-header.compact .header-search .br-input label {
+  display: none;
+}
+.br-header .header-search .br-input input, .br-header.compact .header-search .br-input input {
+  border-color: transparent;
+}
+.br-header .header-search .br-input input:not(:focus), .br-header.compact .header-search .br-input input:not(:focus) {
+ 
+  border-color: transparent;
+}
+.br-header .header-search .br-input .icon,
+.br-header .header-search .br-input .br-button, .br-header.compact .header-search .br-input .icon,
+.br-header.compact .header-search .br-input .br-button {
+  --focus-offset: 0;
+  bottom: auto;
+  right: 4px;
+  top: auto;
+}
+.br-header .header-search .search-close, .br-header.compact .header-search .search-close {
+  --focus-offset: calc(var(--spacing-scale-half) * -1);
+  display: none;
+}
+.br-header .header-search.active, .br-header.compact .header-search.active {
+  display: flex;
+}
+.br-header .header-search.active .search-close, .br-header.compact .header-search.active .search-close {
+  display: inline-flex;
+}
+.br-header[data-no-search] .header-search {
+  display: none;
+}
+@media (min-width: 1280px) {
+  .br-header .header-search {
+    display: flex;
+    padding: 0;
+    position: static;
+  }
+  .br-header .header-search.active .search-close {
+    display: none;
+  }
+}
+.br-header .br-input.has-icon .br-button.circle {
+  margin-top: 0;
+  position: absolute;
+  right: 4px;
+}
+.br-header.compact {
+  --header-logo-size: var(--header-logo-small);
+  --header-padding: var(--header-padding-small);
+}
+.br-header.compact .header-actions .header-search-trigger {
+  display: block;
+}
+@media (min-width: 576px) {
+  .br-header.compact .container-lg {
+    position: relative;
+  }
+  .br-header.compact .header-top {
+    display: block;
+  }
+  .br-header.compact .header-logo {
+    --header-logo-size: var(--header-logo-small);
+    float: left;
+  }
+  .br-header.compact .header-logo .br-divider {
+    display: none;
+  }
+  .br-header.compact .header-sign {
+    display: none;
+  }
+  .br-header.compact .header-actions {
+    float: right;
+    margin-top: var(--spacing-scale-2x);
+    position: relative;
+  }
+  .br-header.compact .header-bottom {
+    clear: left;
+  }
+  .br-header.compact .header-menu {
+    --header-title-size: var(--font-size-scale-up-01);
+  }
+  .br-header.compact .header-menu .header-menu-trigger {
+    margin-top: 0;
+  }
+}
+@media (min-width: 1280px) {
+  .br-header.compact .header-menu {
+    --header-title-size: var(--font-size-scale-up-02);
+  }
+}
+.br-header[data-sticky] {
+  position: sticky;
+  top: 0;
+  transition: all 150ms ease;
+  z-index: var(--header-sticky-z-index);
+}
+.br-header[data-sticky] .header-logo img,
+.br-header[data-sticky] .header-actions,
+.br-header[data-sticky] .header-menu-trigger,
+.br-header[data-sticky] .header-title {
+  transition: all 150ms ease;
+}
+.br-header[data-sticky] .header-logo img {
+  margin-right: var(--spacing-scale-base);
+}
+
+/*# sourceMappingURL=header.css.map*/
+.br-button{     color: #a199c2 !important;}
+.br-sign-in{ color: #ff6d00 !important; }
+.v8{
+  height: 6vh;
+  width: 6vw;
+}
+.w-6 h-6{
+  height: 4vh;
+  width: 4vw;
+}
+</style>
+ <style>
+    .rotate-45 {
+        --transform-rotate: 45deg;
+        transform: rotate(45deg);
+    }
+
+    .group:hover .group-hover\:flex {
+        display: flex;
+    }
+    
+    .none{
+        display: none;
+    }
+    .flex a{
+        cursor: pointer;
+    }
+
+</style>
+
+  
+<div style="background: rgb(244,244,244);"> 
+<header class="br-header">
+  <div class="container-lg">
+    <div class="header-top">
+      <div class="header-logo">
+      <div class=" has-icon">
+      <button class="br-button circle small" type="button" aria-label="Pesquisar"><i class="fas fa-search" aria-hidden="true"></i>
+          </button>
+          <input style="outline: none !important; width: 28vw;" id="searchbox-64881" type="text" placeholder="O que você procura?"/>
+          
+      </div>
+        </div>
+      <div class="header-actions">
+        <div class="header-links dropdown">
+          <button class="br-button circle small" type="button" data-toggle="dropdown" aria-label="Abrir Acesso Rápido"><i class="fas fa-ellipsis-v" aria-hidden="true"></i>
+          </button>
+          <div class="br-list">
+            <div class="header">
+              <div class="title">Acesso Rápido</div>
+            </div>
+          </div>
+        </div><span class="br-divider vertical mx-half mx-sm-1"></span>
+        <div class="header-functions dropdown">
+          <button class="br-button circle small" type="button" data-toggle="dropdown" aria-label="Abrir Funcionalidades do Sistema"><i class="fas fa-th" aria-hidden="true"></i>
+          </button>
+          <div class="br-list">
+            <div class="header">
+              <div class="title">Funcionalidades do Sistema</div>
+            </div>
+            <div class="align-items-center br-item">
+              <button class="br-button circle small" type="button" aria-label="Funcionalidade 1"><i class="fas fa-chart-bar" aria-hidden="true"></i><span class="text">Funcionalidade 1</span>
+              </button>
+            </div>
+            <div class="align-items-center br-item">
+              <button class="br-button circle small" type="button" aria-label="Funcionalidade 2"><i class="fas fa-headset" aria-hidden="true"></i><span class="text">Funcionalidade 2</span>
+              </button>
+            </div>
+            <div class="align-items-center br-item">
+              <button class="br-button circle small" type="button" aria-label="Funcionalidade 3"><i class="fas fa-comment" aria-hidden="true"></i><span class="text">Funcionalidade 3</span>
+              </button>
+            </div>
+            <div class="align-items-center br-item">
+              <button class="br-button circle small" type="button" aria-label="Funcionalidade 4"><i class="fas fa-adjust" aria-hidden="true"></i><span class="text">Funcionalidade 4</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="header-search-trigger">
+          <button class="br-button circle" type="button" aria-label="Abrir Busca" data-toggle="search" data-target=".header-search"><i class="fas fa-comment" aria-hidden="true"></i>
+          </button>
+        </div>
+        <div class="header-login">
+          <div class="header-sign-in">
+            <button (click)="open(content)" class="br-sign-in small" type="button" data-trigger="login"><i class="fas fa-plus" aria-hidden="true"></i><span class="d-sm-inline">Post</span>
+            </button>
+          </div>
+          <div class="header-avatar d-none">
+            <div class="avatar dropdown"><span class="br-avatar" title="Fulana da Silva"><span class="image"><img src="https://picsum.photos/id/823/400" alt="Avatar"/></span></span>
+              <button class="br-button circle small" type="button" aria-label="Abrir Menu de usuário" data-toggle="dropdown"><i class="fas fa-angle-down" aria-hidden="true"></i>
+              </button>
+              <div class="br-notification">
+                <div class="notification-header">
+                  <div class="row">
+                    <div class="col-10"><span class="text-bold">Fulano da Silva</span><br/><small>nome.sobrenome@dominio.gov</small></div>
+                  </div>
+                </div>
+                <div class="notification-body">
+                  <div class="br-tab">
+                    <nav class="tab-nav">
+                      <ul>
+                        <li class="tab-item">
+                          <button type="button" data-panel="notification-panel-1-34796"><span class="name"><span class="d-flex flex-column flex-sm-row"><span class="icon mb-1 mb-sm-0 mr-sm-1"><i class="fas fa-image" aria-hidden="true"></i></span><span class="name">Item</span></span></span></button>
+                        </li>
+                        <li class="tab-item active">
+                          <button type="button" data-panel="notification-panel-2-34796"><span class="name"><span class="d-flex flex-column flex-sm-row"><span class="icon mb-1 mb-sm-0 mr-sm-1"><i class="fas fa-image" aria-hidden="true"></i></span><span class="name">Item</span></span></span></button>
+                        </li>
+                      </ul>
+                    </nav>
+                    <div class="tab-content">
+                      <div class="tab-panel" id="notification-panel-1-34796">
+                        <div class="br-list">
+                          <button class="br-item" type="button"><i class="fas fa-heartbeat" aria-hidden="true"></i>Link de Acesso
+                          </button><span class="br-divider"></span>
+                          <button class="br-item" type="button"><i class="fas fa-heartbeat" aria-hidden="true"></i>Link de Acesso
+                          </button><span class="br-divider"></span>
+                          <button class="br-item" type="button"><i class="fas fa-heartbeat" aria-hidden="true"></i>Link de Acesso
+                          </button>
+                        </div>
+                      </div>
+                      <div class="tab-panel active" id="notification-panel-2-34796">
+                        <div class="br-list">
+                          <button class="br-item" type="button"><span class="br-tag status small warning"></span><span class="text-bold">Título</span><span class="text-medium mb-2">25 de out</span><span>Nostrud consequat culpa ex mollit aute. Ex ex veniam ea labore laboris duis duis elit. Ex aute dolor enim aute Lorem dolor. Duis labore ad anim culpa. Non aliqua excepteur sunt eiusmod ex consectetur ex esse laborum velit ut aute.</span>
+                          </button><span class="br-divider"></span>
+                          <button class="br-item" type="button"><span class="text-bold">Título</span><span class="text-medium mb-2">24 de out</span><span>Labore nulla elit laborum nulla duis. Deserunt ad nulla commodo occaecat nulla proident ea proident aliquip dolore sunt nulla. Do sit eu consectetur quis culpa. Eiusmod minim irure sint nulla incididunt occaecat ipsum mollit in ut. Minim adipisicing veniam adipisicing velit nostrud duis consectetur aute nulla deserunt culpa aliquip.</span>
+                          </button><span class="br-divider"></span>
+                          <button class="br-item" type="button"><span class="br-tag status small warning"></span><span class="text-bold">Título</span><span class="text-medium mb-2">03 de out</span><span>Duis qui dolor dolor qui sint consectetur. Ipsum eu dolore ex anim reprehenderit laborum commodo. Labore do ut nulla eiusmod consectetur.</span>
+                          </button><span class="br-divider"></span>
+                          <button class="br-item" type="button"><span class="text-bold">Título</span><span class="text-medium mb-2">16 de mai</span><span>Sunt velit dolor enim mollit incididunt irure est. Ad ea Lorem culpa quis occaecat sunt in exercitation nisi. Sit laborum laborum dolor culpa ipsum velit. Non nulla nisi dolore et anim consequat officia deserunt amet qui. Incididunt exercitation irure labore ut Lorem culpa. Dolore ea irure pariatur ullamco culpa veniam amet dolor in fugiat pariatur ut. Sit non ut enim et incididunt tempor irure pariatur ex proident labore cillum dolore nisi.</span>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </div>
+</header>
+</div>
+  <div class="menu" style="width: 64px;
+    max-width: 64px;
+    min-width: 64px;">
+    <a class="flex items-center justify-center mt-3" href="#">
+      <svg class="w-8 h-8 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+        <path d="M11 17a1 1 0 001.447.894l4-2A1 1 0 0017 15V9.236a1 1 0 00-1.447-.894l-4 2a1 1 0 00-.553.894V17zM15.211 6.276a1 1 0 000-1.788l-4.764-2.382a1 1 0 00-.894 0L4.789 4.488a1 1 0 000 1.788l4.764 2.382a1 1 0 00.894 0l4.764-2.382zM4.447 8.342A1 1 0 003 9.236V15a1 1 0 00.553.894l4 2A1 1 0 009 17v-5.764a1 1 0 00-.553-.894l-4-2z" />
+      </svg>
+    </a>
+    <div style="border-top: 0;" class="flex flex-col items-center mt-3 border-t border-gray-300">
+      <a #m1  class="flex items-center justify-center w-12 h-12 mt-2 rounded hover:bg-gray-300 bg-gray-300" 
+        (click)="m1.classList.add('bg-gray-300');
+                m2.classList.remove('bg-gray-300'); 
+                m3.classList.remove('bg-gray-300'); 
+                m4.classList.remove('bg-gray-300'); 
+                m5.classList.remove('bg-gray-300'); 
+                m6.classList.remove('bg-gray-300'); 
+                m7.classList.remove('bg-gray-300'); 
+                m8.classList.remove('bg-gray-300'); 
+                feed.classList.remove('none');
+                perfil.classList.add('none');
+                loja.classList.add('none');">
+        <svg class="w-6 h-6 stroke-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+        </svg>
+      </a>
+        <a #m2 class="flex items-center justify-center w-12 h-12 mt-2 rounded " 
+           (click)="m2.classList.add('bg-gray-300');
+                m1.classList.remove('bg-gray-300'); 
+                m3.classList.remove('bg-gray-300'); 
+                m4.classList.remove('bg-gray-300'); 
+                m5.classList.remove('bg-gray-300'); 
+                m6.classList.remove('bg-gray-300'); 
+                m7.classList.remove('bg-gray-300'); 
+                m8.classList.remove('bg-gray-300'); 
+                feed.classList.add('none');
+                loja.classList.add('none');
+                perfil.classList.remove('none');">
+        <svg class="w-6 h-6 stroke-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+			</svg>
+      </a>
+      <a #m3 class="flex items-center justify-center w-12 h-12 mt-2 rounded hover:bg-gray-300"
+         (click)="m3.classList.add('bg-gray-300');
+                m2.classList.remove('bg-gray-300'); 
+                m1.classList.remove('bg-gray-300'); 
+                m4.classList.remove('bg-gray-300'); 
+                m5.classList.remove('bg-gray-300'); 
+                m6.classList.remove('bg-gray-300'); 
+                m7.classList.remove('bg-gray-300'); 
+                m8.classList.remove('bg-gray-300'); ">
+        <svg class="w-6 h-6 stroke-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+      </a>
+      <a #m4 class="flex items-center justify-center w-12 h-12 mt-2  " 
+         (click)="m4.classList.add('bg-gray-300');
+                m1.classList.remove('bg-gray-300'); 
+                m2.classList.remove('bg-gray-300'); 
+                m3.classList.remove('bg-gray-300'); 
+                m5.classList.remove('bg-gray-300'); 
+                m6.classList.remove('bg-gray-300'); 
+                m7.classList.remove('bg-gray-300'); 
+                m8.classList.remove('bg-gray-300'); ">
+        <svg class="w-6 h-6 stroke-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2w-6 h-6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+        </svg>
+      </a>
+      <a #m5 class="flex items-center justify-center w-12 h-12 mt-2 rounded hover:bg-gray-300" 
+         (click)="m5.classList.add('bg-gray-300');
+                m1.classList.remove('bg-gray-300'); 
+                m2.classList.remove('bg-gray-300'); 
+                m3.classList.remove('bg-gray-300'); 
+                m4.classList.remove('bg-gray-300'); 
+                m6.classList.remove('bg-gray-300'); 
+                m7.classList.remove('bg-gray-300'); 
+                m8.classList.remove('bg-gray-300'); ">
+        <svg class="w-6 h-6 stroke-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2" />
+        </svg>
+      </a>
+    </div>
+    <div class="flex flex-col items-center mt-2 border-t border-gray-300">
+      <a #m6 class="flex items-center justify-center w-12 h-12 mt-2 rounded hover:bg-gray-300" 
+         (click)="m6.classList.add('bg-gray-300');
+                m1.classList.remove('bg-gray-300'); 
+                m2.classList.remove('bg-gray-300'); 
+                m3.classList.remove('bg-gray-300'); 
+                m4.classList.remove('bg-gray-300'); 
+                m5.classList.remove('bg-gray-300'); 
+                m7.classList.remove('bg-gray-300'); 
+                m8.classList.remove('bg-gray-300');
+                loja.classList.remove('none');
+                feed.classList.add('none');
+                perfil.classList.add('none'); ">
+        <svg class="w-6 h-6 stroke-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+        </svg>
+      </a>
+      <a #m7 class="flex items-center justify-center w-12 h-12 mt-2 rounded hover:bg-gray-300" 
+         (click)="m7.classList.add('bg-gray-300');
+                m1.classList.remove('bg-gray-300'); 
+                m2.classList.remove('bg-gray-300'); 
+                m3.classList.remove('bg-gray-300'); 
+                m4.classList.remove('bg-gray-300'); 
+                m5.classList.remove('bg-gray-300'); 
+                m6.classList.remove('bg-gray-300'); 
+                m8.classList.remove('bg-gray-300'); ">
+        <svg class="w-6 h-6 stroke-current"  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+        </svg>
+      </a>
+      <a #m8 class="relative flex items-center justify-center w-12 h-12 mt-2 hover:bg-gray-300"
+         (click)="m8.classList.add('bg-gray-300');
+                m1.classList.remove('bg-gray-300'); 
+                m2.classList.remove('bg-gray-300'); 
+                m3.classList.remove('bg-gray-300'); 
+                m4.classList.remove('bg-gray-300'); 
+                m5.classList.remove('bg-gray-300'); 
+                m6.classList.remove('bg-gray-300'); 
+                m7.classList.remove('bg-gray-300'); ">
+        <svg class="w-6 h-6 stroke-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2w-6 h-6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+        </svg>
+        <span class="absolute top-0 left-0 w-2 h-2 mt-2 ml-2 bg-indigo-500 rounded-full"></span>
+      </a>
+    </div>
+    
+     <a style="color: #FF4B2B; bottom: 0px;  position: absolute;" class="flex items-center justify-center w-16 h-16 mt-auto bg-gray-200 hover:bg-gray-300" href="#">
+        <svg class="w-6 h-6 stroke-current" fill="none" viewBox="0 0 38 38" stroke="currentColor" enable-background="new 0 0 32 32" id="Layer_4" version="1.1" viewBox="0 0 32 32" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g><line fill="none" stroke="#f01826" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" x1="28" x2="1" y1="16" y2="16"/><polyline fill="none" points="7,22 1,16 7,10     " stroke="#f01826" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9,8V3   c0-1.105,0.895-2,2-2h18c1.105,0,2,0.895,2,2v26c0,1.105-0.895,2-2,2H11c-1.105,0-2-0.895-2-2v-5" fill="none" stroke="#f01826" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"/></g></svg>
+     </a>
+  </div>
+
+<!-- Tab principal-->
+<style>
+.tabs-container .tabs .tab, .tabs-container .tabs input[type=radio] {
+  display: none;
+}
+
+.tabs-container .tabs input[type=radio] + label {
+  display: inline-block;
+  margin: 0;
+  padding: 0.5rem 1.5rem;
+  font-size: 1.5rem;
+  opacity: 0.6;
+  cursor: pointer;
+  user-select: none;
+}
+
+.tabs-container .tabs input[type=radio]:checked + label {
+  border-bottom: 2px solid #000;
+  opacity: 1;
+}
+
+.tabs-container .tabs .tab {
+  margin: 0;
+  padding: 7% 0;
+}
+
+.tabs input:first-of-type:checked + label ~ .tab:first-of-type,
+.tabs input:nth-of-type(2):checked + label ~ .tab:nth-of-type(2),
+.tabs input:nth-of-type(3):checked + label ~ .tab:nth-of-type(3) {
+  display: block;
+}
+
+.tabs-container .tabs .tab ul {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(auto-fill, minmax(auto, 1fr));
+  grid-auto-flow: row;
+  justify-content: center;
+  list-style: none;
+}
+
+.tabs-container .tabs .tab ul li {
+  margin: 1rem;
+  padding: 2rem;
+  border: 1px solid #000000;
+  border-radius: 4px;
+  aspect-ratio: 3 / 2;
+}
+
+.tabs-container .tabs .tab p {
+  margin: 1.5rem;
+}</style>
+
+<main>
+  <div class="helper" style="background: transparent;">
+      <div style="width: 92%; margin-left: 96px;  background: transparent;">
+          <div #feed class="">
+            <div class="row">
+                <div class="col-lg-12 layout-spacing">
+                    <div class="">
+                        <div class="widget-header">
+                        </div>
+                        <div class="widget-content widget-content-area" style="background: transparent;">
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <div id="content_1" class="tabcontent story-area"> 
+                                        <div class="story-container-1">
+                                            <div class="single-create-story">
+                                                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="single-create-story-bg" style="filter: brightness( 26% );height: 100%; ">
+                                                <div class="create-story-author" style="position: absolute; top: 27%; right: 18%;">
+                                                    <i class="fa fa-plus-circle fa-2x text-info"></i>
+                                                    <p>Create a story</p>
+                                                </div>
+                                            </div>
+                                            <div class="single-story">
+                                                <img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="single-story-bg">
+                                                <div class="story-author">
+                                                    <img src="https://bootdey.com/img/Content/avatar/avatar2.png">
+                                                    <p>John</p>
+                                                </div>
+                                            </div>
+                                            <div class="single-story">
+                                                <img src="https://bootdey.com/img/Content/avatar/avatar3.png" class="single-story-bg">
+                                                <div class="story-author">
+                                                    <img src="https://bootdey.com/img/Content/avatar/avatar3.png">
+                                                    <p>Mike</p>
+                                                </div>
+                                            </div>
+                                            <div class="single-story">
+                                                <img src="https://bootdey.com/img/Content/avatar/avatar4.png" class="single-story-bg">
+                                                <div class="story-author">
+                                                    <img src="https://bootdey.com/img/Content/avatar/avatar4.png">
+                                                    <p>Lisa</p>
+                                                </div>
+                                            </div>
+                                            <div class="single-story">
+                                                <img src="https://bootdey.com/img/Content/avatar/avatar6.png" class="single-story-bg">
+                                                <div class="story-author">
+                                                    <img src="https://bootdey.com/img/Content/avatar/avatar6.png">
+                                                    <p>Jonthy</p>
+                                                </div>
+                                            </div>
+                                            <div class="single-story">
+                                                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" class="single-story-bg">
+                                                <div class="story-author">
+                                                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png">
+                                                    <p>Steve</p>
+                                                </div>
+                                            </div>
+                                            <div class="single-story">
+                                                <img src="https://bootdey.com/img/Content/avatar/avatar8.png" class="single-story-bg">
+                                                <div class="story-author">
+                                                    <img src="https://bootdey.com/img/Content/avatar/avatar8.png">
+                                                    <p>Jenni</p>
+                                                </div>
+                                            </div>
+                                            <div class="single-story">
+                                                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="single-story-bg">
+                                                <div class="story-author">
+                                                    <img src="https://bootdey.com/img/Content/avatar/avatar1.png">
+                                                    <p>Sagarika</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          <app-gridlist></app-gridlist>
+          </div>
+
+
+     <div>
+      <div #perfil class="tabs-container none" style="margin-top: 1%;">
+      			<div class="tabs">
+                                  
+      				<input type="radio" name="tabs" id="tab-1" checked="checked">
+      				<label  style="    margin-left: 23%; background: transparent;" for="tab-1">Fotos</label>
+
+      				<input type="radio" name="tabs" id="tab-2">
+      				<label style="background: transparent;" for="tab-2">Videos</label>
+
+      				<input type="radio" name="tabs" id="tab-3">
+      				<label style="background: transparent;" for="tab-3">Status</label>
+                                      
+      				<div class="tab">
+      					 <app-feedimages></app-feedimages>
+      					
+      				</div>
+      				<div class="tab">
+      					  <app-feedvideos></app-feedvideos>
+      				</div>
+      				<div class="tab">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sodales tempus lectus id fermentum. Suspendisse quis sollicitudin orci. Cras non tempor libero. Mauris augue metus, varius id augue id, viverra vulputate dui. Donec bibendum ipsum dui, in convallis ipsum semper non. Sed maximus tempor purus nec ultricies. Nullam imperdiet, metus non luctus placerat, mi nunc vehicula ex, ut dapibus ante tellus vitae eros. Aliquam ut vehicula justo. Aenean in bibendum sapien. Vivamus eleifend nisi ut felis pretium laoreet. In eu enim elementum lectus egestas consectetur. Proin nisi est, elementum tincidunt auctor non, euismod vel quam. Nulla porttitor faucibus magna eu fringilla. Ut quis libero suscipit erat iaculis auctor eu quis quam.</p>
+                <p>Aenean ultrices non ex eget imperdiet. Praesent bibendum ultrices elementum. Aenean nunc sapien, dapibus id ex a, viverra rutrum dolor. Nunc nec feugiat massa, sed luctus ligula. Nulla ultricies nunc id leo posuere iaculis. Vivamus vitae aliquet neque, a aliquam leo. Nunc molestie lorem iaculis augue ornare, sit amet varius massa porttitor. Etiam eu semper augue. Ut ornare maximus lacus, nec maximus arcu blandit nec. Quisque malesuada, dolor sed tempor fringilla, arcu libero cursus elit, tincidunt pellentesque ante arcu sit amet nisi. Integer rhoncus tortor nec purus congue semper.</p>
+                <p>Vestibulum sed sem vitae ante vulputate auctor non vel nibh. Phasellus consectetur, quam quis iaculis suscipit, augue eros dictum ex, at pharetra ligula libero ut purus. Nulla in mi id ex fermentum sollicitudin vel ut lacus. Fusce at commodo orci. Aenean in quam tempus, commodo nisi eu, efficitur nulla. Donec consequat quam a ante sodales, vitae venenatis nulla luctus. Phasellus ornare metus massa, ut commodo lorem iaculis euismod. Sed eget lacus quis neque euismod vestibulum. Morbi tellus ante, maximus in iaculis in, fermentum at ligula. Donec sed velit vel nisl tincidunt mattis. Fusce tristique leo non enim lacinia rutrum. Vestibulum blandit sapien quis ipsum lobortis faucibus vitae vel massa.</p>
+                <p>Donec nec tempor dui. Duis sit amet lacus condimentum, laoreet turpis eget, blandit elit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut dui orci, consectetur ac lacinia vel, finibus nec nibh. Quisque at dolor ac elit dignissim vulputate et et quam. Cras auctor lorem a sem suscipit ultricies. Ut dictum tortor dolor, nec rutrum lectus porttitor eu. Aenean convallis, velit in vestibulum rhoncus, magna est aliquam justo, vitae hendrerit urna nisi hendrerit ipsum. Sed pretium metus non fringilla vulputate. Fusce in magna dui. Cras facilisis molestie est eget ultrices. In aliquam vel risus eu cursus. Praesent faucibus turpis at turpis faucibus ultricies. Proin nec est tincidunt, finibus nulla quis, maximus lectus. Integer eleifend nunc quis magna laoreet, vel pharetra massa condimentum. Cras ac nisi lectus.</p>
+                <p>Quisque porta augue sed egestas vulputate. Cras nunc enim, vulputate vel nisi sit amet, volutpat sagittis velit. Quisque vitae porta turpis. Proin non felis rutrum, vestibulum libero nec, efficitur lorem. Quisque aliquam tellus risus, molestie dictum ligula tincidunt id. Aliquam erat volutpat. Sed vitae iaculis quam. Etiam eget magna lobortis mi faucibus pellentesque vel sit amet felis. Duis euismod, erat eu molestie pretium, mauris purus congue sapien, eget gravida nulla mauris non sapien. Maecenas a nunc in mauris consectetur luctus. Aenean lobortis eu orci eget hendrerit. Quisque malesuada felis libero, eu malesuada sapien porttitor ornare. Pellentesque euismod nunc ac risus fringilla lobortis.</p>
+      				</div>
+      			</div>
+      </div>
+	   </div>
+
+
+     <div #loja class="none" ><app-feedproduct></app-feedproduct></div>
+    </div>
+      
+	
+      
+  </div>
+  
+  <div class="menu-right">
+     <div
+                        id="plist" class="people-list">
+                        <div
+                           class="input-group">
+                           <div
+                              class="input-group-prepend"> <span
+                              class="input-group-text"><i
+                              class="fa fa-search"></i></span></div>
+                           <input
+                              type="text" class="form-control" placeholder="Search...">
+                        </div>
+                        <ul
+                           class="list-unstyled chat-list mt-2 mb-0">
+                           <li
+                              class="clearfix">
+                              <img
+                                 src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="avatar">
+                              <div
+                                 class="about">
+                                 <div
+                                    class="name">Vincent Porter</div>
+                                 <div
+                                    class="status"> <i
+                                    class="fa fa-circle offline"></i> left 7 mins ago</div>
+                              </div>
+                           </li>
+                           <li
+                              class="clearfix">
+                              <img
+                                 src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="avatar">
+                              <div
+                                 class="about">
+                                 <div
+                                    class="name">Aiden Chavez</div>
+                                 <div
+                                    class="status"> <i
+                                    class="fa fa-circle online"></i> online</div>
+                              </div>
+                           </li>
+                           <li
+                              class="clearfix">
+                              <img
+                                 src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="avatar">
+                              <div
+                                 class="about">
+                                 <div
+                                    class="name">Mike Thomas</div>
+                                 <div
+                                    class="status"> <i
+                                    class="fa fa-circle online"></i> online</div>
+                              </div>
+                           </li>
+                           <li
+                              class="clearfix">
+                              <img
+                                 src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="avatar">
+                              <div
+                                 class="about">
+                                 <div
+                                    class="name">Christian Kelly</div>
+                                 <div
+                                    class="status"> <i
+                                    class="fa fa-circle offline"></i> left 10 hours ago</div>
+                              </div>
+                           </li>
+                           <li
+                              class="clearfix">
+                              <img
+                                 src="https://bootdey.com/img/Content/avatar/avatar8.png" alt="avatar">
+                              <div
+                                 class="about">
+                                 <div
+                                    class="name">Monica Ward</div>
+                                 <div
+                                    class="status"> <i
+                                    class="fa fa-circle online"></i> online</div>
+                              </div>
+                           </li>
+                           <li
+                              class="clearfix">
+                              <img
+                                 src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="avatar">
+                              <div
+                                 class="about">
+                                 <div
+                                    class="name">Dean Henry</div>
+                                 <div
+                                    class="status"> <i
+                                    class="fa fa-circle offline"></i> offline since Oct 28</div>
+                              </div>
+                           </li>
+                             <li
+                              class="clearfix">
+                              <img
+                                 src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="avatar">
+                              <div
+                                 class="about">
+                                 <div
+                                    class="name">Vincent Porter</div>
+                                 <div
+                                    class="status"> <i
+                                    class="fa fa-circle offline"></i> left 7 mins ago</div>
+                              </div>
+                           </li>
+                           <li
+                              class="clearfix">
+                              <img
+                                 src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="avatar">
+                              <div
+                                 class="about">
+                                 <div
+                                    class="name">Aiden Chavez</div>
+                                 <div
+                                    class="status"> <i
+                                    class="fa fa-circle online"></i> online</div>
+                              </div>
+                           </li>
+                           <li
+                              class="clearfix">
+                              <img
+                                 src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="avatar">
+                              <div
+                                 class="about">
+                                 <div
+                                    class="name">Mike Thomas</div>
+                                 <div
+                                    class="status"> <i
+                                    class="fa fa-circle online"></i> online</div>
+                              </div>
+                           </li>
+                           <li
+                              class="clearfix">
+                              <img
+                                 src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="avatar">
+                              <div
+                                 class="about">
+                                 <div
+                                    class="name">Christian Kelly</div>
+                                 <div
+                                    class="status"> <i
+                                    class="fa fa-circle offline"></i> left 10 hours ago</div>
+                              </div>
+                           </li>
+                           <li
+                              class="clearfix">
+                              <img
+                                 src="https://bootdey.com/img/Content/avatar/avatar8.png" alt="avatar">
+                              <div
+                                 class="about">
+                                 <div
+                                    class="name">Monica Ward</div>
+                                 <div
+                                    class="status"> <i
+                                    class="fa fa-circle online"></i> online</div>
+                              </div>
+                           </li>
+                           <li
+                              class="clearfix">
+                              <img
+                                 src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="avatar">
+                              <div
+                                 class="about">
+                                 <div
+                                    class="name">Dean Henry</div>
+                                 <div
+                                    class="status"> <i
+                                    class="fa fa-circle offline"></i> offline since Oct 28</div>
+                              </div>
+                           </li>
+                        </ul>
+      </div>
+      
+    </div>
+
+ <div class="navbar">
+
+  <a href="#"><i class="fa fa-fw fa-home"></i></a>
+  <a href="#"><i class="fa fa-fw fa-search"></i></a>
+  <a href="#"><i class="fa fa-fw fa-play-circle"></i></a>
+  <a href="#"><i class="fa fa-fw fa-envelope"></i></a>
+  <a href="#"><i class="fa fa-fw fa-shopping-bag"></i></a>
+  <a href="#"><i class="fa fa-fw fa-user"></i></a>
+</div>
+
+</main>
+  
+  
+
+<style>
+
+.navbar {
+  overflow: hidden;
+  background: #fff;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 6;
+  display: none;
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: #000;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 3vw;
+  width: 16.6%;
+    height: 8vh;
+}
+
+.navbar i{
+  font-size: 5vw;
+}
+
+.navbar a:hover {
+  background: #f1f1f1;
+  color: #000;
+}
+
+.navbar a.active {
+  background-color: #04AA6D;
+  color: #000;
+}
+
+
+</style>
+
+<style>
+    .widget {
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    border-radius: 6px;
+    -webkit-box-shadow: 0 4px 6px 0 rgb(85 85 85 / 8%), 0 1px 20px 0 rgb(0 0 0 / 7%), 0px 1px 11px 0px rgb(0 0 0 / 7%);
+    -moz-box-shadow: 0 4px 6px 0 rgba(85, 85, 85, 0.08), 0 1px 20px 0 rgba(0, 0, 0, 0.07), 0px 1px 11px 0px rgba(0, 0, 0, 0.07);
+    box-shadow: 0 4px 6px 0 rgb(85 85 85 / 8%), 0 1px 20px 0 rgb(0 0 0 / 7%), 0px 1px 11px 0px rgb(0 0 0 / 7%);
+}
+.widget.box .widget-header {
+    background: #fff;
+    padding: 0px 8px 0px;
+    border-top-right-radius: 6px;
+    border-top-left-radius: 6px;
+}
+.widget .widget-header {
+    border-bottom: 0px solid #f1f2f3;
+}
+.widget.box .widget-header {
+    background: #fff;
+    padding: 0px 8px 0px;
+    border-top-right-radius: 6px;
+    border-top-left-radius: 6px;
+}
+.widget .widget-header {
+    border-bottom: 0px solid #f1f2f3;
+}
+.widget .widget-header:after {
+    clear: both;
+}
+.widget .widget-header:before, .widget .widget-header:after {
+    display: table;
+    content: "";
+    line-height: 0;
+}
+.widget-content-area {
+    padding: 20px;
+    position: relative;
+    background-color: #fff;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+.story-container-1 {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.story-container-1 .single-create-story {
+    height: 175px;
+    width: 110px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    background: #e4e4e4;
+    text-align: center;
+}
+img.single-create-story-bg {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+}
+.create-story-author img {
+    height: 40px;
+    width: 40px;
+    margin-top: -20px;
+    padding: 4px;
+    background: #e4e4e4;
+    border-radius: 50%;
+}
+.story-container-1 .single-story {
+    height: 175px;
+    width: 110px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+.story-container-1 .single-story::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-image: linear-gradient(rgb(255 0 0 / 0%), black);
+}
+img.single-story-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.story-container-1 .story-author {
+   position: absolute;
+    top: 50%;
+    margin-left: auto;
+    margin-top: auto;
+    left: 14%;
+    transform: translateY(-50%);
+    /* right: 0px; */
+    text-align: center;
+    z-index: 99;
+    cursor: pointer;
+}
+
+.story-author img {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    border: 1px solid white;
+    padding: 4px;
+}
+
+.story-container-1 .story-author p {
+    color: #fff;
+    width: 100%;
+    margin: 5px 0px 0px 0px;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.create-story-author p {
+    margin: 0px;
+    font-size: 13px;
+    font-weight: 500;
+}
+</style>
+
+ <style type="text/css">
+     body{
+            background-color: #f4f7f6;
+            margin-top:20px;
+            }
+            .card {
+            background: #fff;
+            transition: .5s;
+            border: 0;
+            margin-bottom: 30px;
+            border-radius: .55rem;
+            position: relative;
+            width: 100%;
+            box-shadow: 0 1px 2px 0 rgb(0 0 0 / 10%);
+            }
+            .chat-app .people-list {
+            width: 280px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            padding: 20px;
+            z-index: 7
+            }
+            .chat-app .chat {
+            margin-left: 280px;
+            border-left: 1px solid #eaeaea
+            }
+            .people-list {
+            -moz-transition: .5s;
+            -o-transition: .5s;
+            -webkit-transition: .5s;
+            transition: .5s
+            }
+            .people-list .chat-list li {
+            padding: 10px 15px;
+            list-style: none;
+            border-radius: 3px
+            }
+            .people-list .chat-list li:hover {
+            background: #efefef;
+            cursor: pointer
+            }
+            .people-list .chat-list li.active {
+            background: #efefef
+            }
+            .people-list .chat-list li .name {
+            font-size: 15px
+            }
+            .people-list .chat-list img {
+            width: 45px;
+            border-radius: 50%
+            }
+            .people-list img {
+            float: left;
+            border-radius: 50%
+            }
+            .people-list .about {
+            float: left;
+            padding-left: 8px
+            }
+            .people-list .status {
+            color: #999;
+            font-size: 13px
+            }
+            .chat .chat-header {
+            padding: 15px 20px;
+            border-bottom: 2px solid #f4f7f6
+            }
+            .chat .chat-header img {
+            float: left;
+            border-radius: 40px;
+            width: 40px
+            }
+            .chat .chat-header .chat-about {
+            float: left;
+            padding-left: 10px
+            }
+            .chat .chat-history {
+            padding: 20px;
+            border-bottom: 2px solid #fff
+            }
+            .chat .chat-history ul {
+            padding: 0
+            }
+            .chat .chat-history ul li {
+            list-style: none;
+            margin-bottom: 30px
+            }
+            .chat .chat-history ul li:last-child {
+            margin-bottom: 0px
+            }
+            .chat .chat-history .message-data {
+            margin-bottom: 15px
+            }
+            .chat .chat-history .message-data img {
+            border-radius: 40px;
+            width: 40px
+            }
+            .chat .chat-history .message-data-time {
+            color: #434651;
+            padding-left: 6px
+            }
+            .chat .chat-history .message {
+            color: #444;
+            padding: 18px 20px;
+            line-height: 26px;
+            font-size: 16px;
+            border-radius: 7px;
+            display: inline-block;
+            position: relative
+            }
+            .chat .chat-history .message:after {
+            bottom: 100%;
+            left: 7%;
+            border: solid transparent;
+            content: " ";
+            height: 0;
+            width: 0;
+            position: absolute;
+            pointer-events: none;
+            border-bottom-color: #fff;
+            border-width: 10px;
+            margin-left: -10px
+            }
+            .chat .chat-history .my-message {
+            background: #efefef
+            }
+            .chat .chat-history .my-message:after {
+            bottom: 100%;
+            left: 30px;
+            border: solid transparent;
+            content: " ";
+            height: 0;
+            width: 0;
+            position: absolute;
+            pointer-events: none;
+            border-bottom-color: #efefef;
+            border-width: 10px;
+            margin-left: -10px
+            }
+            .chat .chat-history .other-message {
+            background: #e8f1f3;
+            text-align: right
+            }
+            .chat .chat-history .other-message:after {
+            border-bottom-color: #e8f1f3;
+            left: 93%
+            }
+            .chat .chat-message {
+            padding: 20px
+            }
+            .online,
+            .offline,
+            .me {
+            margin-right: 2px;
+            font-size: 8px;
+            vertical-align: middle
+            }
+            .online {
+            color: #86c541
+            }
+            .offline {
+            color: #e47297
+            }
+            .me {
+            color: #1d8ecd
+            }
+            .float-right {
+            float: right
+            }
+            .clearfix:after {
+            visibility: hidden;
+            display: block;
+            font-size: 0;
+            content: " ";
+            clear: both;
+            height: 0
+            }
+            @media only screen and (max-width: 767px) {
+            .chat-app .people-list {
+            height: 465px;
+            width: 100%;
+            overflow-x: auto;
+            background: #fff;
+            left: -400px;
+            display: none
+            }
+            .chat-app .people-list.open {
+            left: 0
+            }
+            .chat-app .chat {
+            margin: 0
+            }
+            .chat-app .chat .chat-header {
+            border-radius: 0.55rem 0.55rem 0 0
+            }
+            .chat-app .chat-history {
+            height: 300px;
+            overflow-x: auto
+            }
+            }
+            @media only screen and (min-width: 768px) and (max-width: 992px) {
+            .chat-app .chat-list {
+            height: 650px;
+            overflow-x: auto
+            }
+            .chat-app .chat-history {
+            height: 600px;
+            overflow-x: auto
+            }
+            }
+            @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
+            .chat-app .chat-list {
+            height: 480px;
+            overflow-x: auto
+            }
+            .chat-app .chat-history {
+            height: calc(100vh - 350px);
+            overflow-x: auto
+            }
+            }
+         </style> 
+         
+        <ng-template #content let-c="close" let-d="dismiss" style=" max-width: 75%; width: 75%;">
+  <div class="modal-body" >
+    
+		<div class="tab_container">
+			<input id="tab1" type="radio" name="tabs" checked>
+                        <label for="tab1"><i class="fa fa fa-align-left"></i><span>&nbsp; Textão </span></label>
+
+			<input id="tab2" type="radio" name="tabs">
+			<label for="tab2"><i class="fa fa-camera-retro"></i><span> &nbsp;Foto(s) </span></label>
+
+			<input id="tab3" type="radio" name="tabs">
+			<label for="tab3"><i class="fa fa-bar-chart-o"></i><span>Enquetes</span></label>
+
+			<input id="tab4" type="radio" name="tabs">
+			<label for="tab4"><i class="fa fa-video-camera"></i><span>Video(s)</span></label>
+
+			<input id="tab5" type="radio" name="tabs">
+			<label for="tab5"><i class="fa fa-mobile"></i><span> &nbsp;Status&nbsp; </span></label>
+
+			<section id="content1" class="tab-content">
+                                 <div
+                                    class="panel-body">
+                                    <textarea class="form-control1" rows="2" placeholder="What are you thinking?"
+                                    for="texto" id="texto" [(ngModel)]="texto" name="texto"></textarea>
+                                    <div
+                                       class="mar-top clearfix"> <button (click)="PostText();"
+                                       class="btn btn-sm btn-primary pull-right" type="submit"><i
+                                       class="fa fa-pencil fa-fw"></i> Share</button> <a
+                                       class="btn btn-trans btn-icon fa fa-video-camera add-tooltip" href="#" data-original-title="Add Video" data-toggle="tooltip"></a> <a
+                                       class="btn btn-trans btn-icon fa fa-camera add-tooltip" href="#" data-original-title="Add Photo" data-toggle="tooltip"></a> <a
+                                       class="btn btn-trans btn-icon fa fa-file add-tooltip" href="#" data-original-title="Add File" data-toggle="tooltip"></a><a
+                                       class="btn btn-trans btn-icon fa fa-align-left add-tooltip" href="#" data-original-title="Add File" data-toggle="tooltip"></a></div>
+                                 </div>
+			</section>
+
+			<section id="content2" class="tab-content">
+				 <form class="form-horizontal" role="form">
+									
+					<ngx-dropzone (change)="onSelect($event)">
+						<ngx-dropzone-label>Drop it, baby!</ngx-dropzone-label>
+						<ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f">
+						  <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+						</ngx-dropzone-image-preview>
+					</ngx-dropzone>
+                    <a>Legenda:</a>
+                     <div class="panel-body">
+                                    <textarea class="form-control" rows="5" placeholder=""
+                                    for="texto" id="texto" [(ngModel)]="descricao" name="texto"></textarea>
+                      </div>
+                      <a>Hastags:</a>
+                      <div class="panel-body">
+                                    <textarea class="form-control" rows="1" placeholder=""
+                                    for="texto" id="texto" [(ngModel)]="descricao" name="texto"></textarea>
+                      </div>
+                     <div
+                        class="form-group">
+                        <a>Localização</a>
+                        <div
+                           class="col-lg-8">
+                           <div
+                              class="ui-select">
+                              <select
+                                 id="user_time_zone" class="form-control">
+                                 <option
+                                    value="Hawaii">(GMT-10:00) Hawaii</option>
+                                 <option
+                                    value="Alaska">(GMT-09:00) Alaska</option>
+                                 <option
+                                    value="Pacific Time (US &amp; Canada)">(GMT-08:00) Pacific Time (US &amp; Canada)</option>
+                                 <option
+                                    value="Arizona">(GMT-07:00) Arizona</option>
+                                 <option
+                                    value="Mountain Time (US &amp; Canada)">(GMT-07:00) Mountain Time (US &amp; Canada)</option>
+                                 <option
+                                    value="Central Time (US &amp; Canada)" selected="selected">(GMT-06:00) Central Time (US &amp; Canada)</option>
+                                 <option
+                                    value="Eastern Time (US &amp; Canada)">(GMT-05:00) Eastern Time (US &amp; Canada)</option>
+                                 <option
+                                    value="Indiana (East)">(GMT-05:00) Indiana (East)</option>
+                              </select>
+                           </div>
+                        </div>
+                     </div>
+                  </form>
+                  <div
+                                       class="mar-top clearfix"> <button (click)="PostImagem();"
+                                       class="btn btn-sm btn-primary pull-right" type="submit"><i
+                                       class="fa fa-pencil fa-fw"></i> Share</button> <a
+                                       class="btn btn-trans btn-icon fa fa-video-camera add-tooltip" href="#" data-original-title="Add Video" data-toggle="tooltip"></a> <a
+                                       class="btn btn-trans btn-icon fa fa-camera add-tooltip" href="#" data-original-title="Add Photo" data-toggle="tooltip"></a> <a
+                                       class="btn btn-trans btn-icon fa fa-file add-tooltip" href="#" data-original-title="Add File" data-toggle="tooltip"></a><a
+                                       class="btn btn-trans btn-icon fa fa-align-left add-tooltip" href="#" data-original-title="Add File" data-toggle="tooltip"></a></div>
+			</section>
+
+			<section id="content3" class="tab-content">
+				<h3>Headline 3</h3>
+		      	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		      	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		      	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		      	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		      	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		      	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		      	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		      	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		      	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		      	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		      	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		      	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			</section>
+
+			<section id="content4" class="tab-content">
+				<form class="form-horizontal" role="form">
+									
+					<ngx-dropzone (change)="onSelect($event)">
+						<ngx-dropzone-label>Drop it, baby!</ngx-dropzone-label>
+						<ngx-dropzone-video-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f">
+						  <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+						</ngx-dropzone-video-preview>
+					</ngx-dropzone>
+                    <a>Legenda:</a>
+                     <div class="panel-body">
+                                    <textarea class="form-control" rows="5" placeholder=""
+                                    for="texto" id="texto" [(ngModel)]="descricao" name="texto"></textarea>
+                      </div>
+                      <a>Hastags:</a>
+                      <div class="panel-body">
+                                    <textarea class="form-control" rows="1" placeholder=""
+                                    for="texto" id="texto" [(ngModel)]="descricao" name="texto"></textarea>
+                      </div>
+                     <div
+                        class="form-group">
+                        <a>Localização</a>
+                        <div
+                           class="col-lg-8">
+                           <div
+                              class="ui-select">
+                              <select
+                                 id="user_time_zone" class="form-control">
+                                 <option
+                                    value="Hawaii">(GMT-10:00) Hawaii</option>
+                                 <option
+                                    value="Alaska">(GMT-09:00) Alaska</option>
+                                 <option
+                                    value="Pacific Time (US &amp; Canada)">(GMT-08:00) Pacific Time (US &amp; Canada)</option>
+                                 <option
+                                    value="Arizona">(GMT-07:00) Arizona</option>
+                                 <option
+                                    value="Mountain Time (US &amp; Canada)">(GMT-07:00) Mountain Time (US &amp; Canada)</option>
+                                 <option
+                                    value="Central Time (US &amp; Canada)" selected="selected">(GMT-06:00) Central Time (US &amp; Canada)</option>
+                                 <option
+                                    value="Eastern Time (US &amp; Canada)">(GMT-05:00) Eastern Time (US &amp; Canada)</option>
+                                 <option
+                                    value="Indiana (East)">(GMT-05:00) Indiana (East)</option>
+                              </select>
+                           </div>
+                        </div>
+                     </div>
+                  </form>
+			</section>
+
+			<section id="content5" class="tab-content">
+				<form class="form-horizontal" role="form">
+									
+					<ngx-dropzone (change)="onSelect($event)">
+						<ngx-dropzone-label>Drop it, baby!</ngx-dropzone-label>
+						<ngx-dropzone-video-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f">
+						  <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+						</ngx-dropzone-video-preview>
+					</ngx-dropzone>
+                    <a>Legenda:</a>
+                     <div class="panel-body">
+                                    <textarea class="form-control" rows="5" placeholder=""
+                                    for="texto" id="texto" [(ngModel)]="descricao" name="texto"></textarea>
+                      </div>
+                      <a>Hastags:</a>
+                      <div class="panel-body">
+                                    <textarea class="form-control" rows="1" placeholder=""
+                                    for="texto" id="texto" [(ngModel)]="descricao" name="texto"></textarea>
+                      </div>
+                     <div
+                        class="form-group">
+                        <a>Localização</a>
+                        <div
+                           class="col-lg-8">
+                           <div
+                              class="ui-select">
+                              <select
+                                 id="user_time_zone" class="form-control">
+                                 <option
+                                    value="Hawaii">(GMT-10:00) Hawaii</option>
+                                 <option
+                                    value="Alaska">(GMT-09:00) Alaska</option>
+                                 <option
+                                    value="Pacific Time (US &amp; Canada)">(GMT-08:00) Pacific Time (US &amp; Canada)</option>
+                                 <option
+                                    value="Arizona">(GMT-07:00) Arizona</option>
+                                 <option
+                                    value="Mountain Time (US &amp; Canada)">(GMT-07:00) Mountain Time (US &amp; Canada)</option>
+                                 <option
+                                    value="Central Time (US &amp; Canada)" selected="selected">(GMT-06:00) Central Time (US &amp; Canada)</option>
+                                 <option
+                                    value="Eastern Time (US &amp; Canada)">(GMT-05:00) Eastern Time (US &amp; Canada)</option>
+                                 <option
+                                    value="Indiana (East)">(GMT-05:00) Indiana (East)</option>
+                              </select>
+                           </div>
+                        </div>
+                     </div>
+                  </form>
+			</section>
+		</div>
+
+  </div>
+</ng-template>
+         
+         <style>
+             @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css');
+
+*,
+*:after,
+*:before {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.clearfix:before,
+.clearfix:after {
+	content: " ";
+	display: table;
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+h1 {
+	color: #ccc;
+	text-align: center;
+}
+
+a {
+  color: #ccc;
+  text-decoration: none;
+  outline: none;
+}
+
+/*Fun begins*/
+.tab_container {
+	width: 100%;
+    margin: 0 auto;
+    padding-top: 0;
+    position: relative;
+}
+
+.tab_container input, section {
+  clear: both;
+  padding-top: 10px;
+  display: none;
+}
+
+label {
+  font-weight: 700;
+  font-size: 18px;
+  display: block;
+  float: left;
+  width: 20%;
+  padding: 1.5em;
+  color: #757575;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  background: #f0f0f0;
+}
+
+#tab1:checked ~ #content1,
+#tab2:checked ~ #content2,
+#tab3:checked ~ #content3,
+#tab4:checked ~ #content4,
+#tab5:checked ~ #content5 {
+  display: block;
+  padding: 20px;
+  background: #fff;
+  color: #999;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.tab_container .tab-content p,
+.tab_container .tab-content h3 {
+  -webkit-animation: fadeInScale 0.7s ease-in-out;
+  -moz-animation: fadeInScale 0.7s ease-in-out;
+  animation: fadeInScale 0.7s ease-in-out;
+}
+.tab_container .tab-content h3  {
+  text-align: center;
+}
+
+.tab_container [id^="tab"]:checked + label {
+  background: #fff;
+  box-shadow: inset 0 3px #0CE;
+}
+
+.tab_container [id^="tab"]:checked + label .fa {
+  color: #0CE;
+}
+
+label .fa {
+  font-size: 1.3em;
+  margin: 0 0.4em 0 0;
+}
+
+/*Media query*/
+@media only screen and (max-width: 900px) {
+  label span {
+    display: none;
+  }
+  
+  .tab_container {
+    width: 98%;
+  }
+}
+
+/*Content Animation*/
+@keyframes fadeInScale {
+  0% {
+  	transform: scale(0.9);
+  	opacity: 0;
+  }
+  
+  100% {
+  	transform: scale(1);
+  	opacity: 1;
+  }
+}
+
+.no_wrap {
+  text-align:center;
+  color: #0ce;
+}
+.link {
+  text-align:center;
+}
+.form-control1 {
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+    height: 226px;
+    padding: 0.875rem 0.75rem;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: #000;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+             </style>
+         
+  

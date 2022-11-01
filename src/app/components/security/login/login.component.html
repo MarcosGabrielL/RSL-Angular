@@ -1,0 +1,613 @@
+<style>
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background: #CFC9F7;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	font-family: 'Montserrat', sans-serif;
+	height: 100vh;
+	margin: -20px 0 50px;
+}
+
+h1 {
+	font-weight: bold;
+	margin: 0;
+}
+
+h2 {
+	text-align: center;
+}
+
+p {
+	font-size: 14px;
+	font-weight: 100;
+	line-height: 20px;
+	letter-spacing: 0.5px;
+	margin: 20px 0 30px;
+}
+
+span {
+	font-size: 12px;
+}
+
+a {
+	color: #333;
+	font-size: 14px;
+	text-decoration: none;
+	margin: 15px 0;
+}
+
+button {
+	border-radius: 20px;
+	    border: 1px solid #4c20b1;
+    background-color: #4c20b1;
+	color: #FFFFFF;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 12px 45px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	transition: transform 80ms ease-in;
+}
+
+button:active {
+	transform: scale(0.95);
+}
+
+button:focus {
+	outline: none;
+}
+
+button.ghost {
+	background-color: transparent;
+	border-color: #FFFFFF;
+}
+
+form {
+	background-color: #FFFFFF;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 0 50px;
+	height: 100%;
+	text-align: center;
+}
+
+input {
+	background-color: #eee;
+	border: none;
+	padding: 12px 15px;
+	margin: 8px 0;
+	width: 100%;
+}
+
+.container {
+	background-color: #fff;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    width: 661px;
+    max-width: 100%;
+    min-height: 438px;
+    /* padding: 50px; */
+    z-index: 10000 !important;
+}
+
+.form-container {
+	position: absolute;
+	top: 0;
+	height: 100%;
+	transition: all 0.6s ease-in-out;
+}
+
+.sign-in-container {
+	left: 0;
+	width: 50%;
+	z-index: 2;
+}
+
+.container.right-panel-active .sign-in-container {
+	transform: translateX(100%);
+}
+
+.sign-up-container {
+	left: 0;
+	width: 50%;
+	opacity: 0;
+	z-index: 1;
+}
+
+.container.right-panel-active .sign-up-container {
+	transform: translateX(100%);
+	opacity: 1;
+	z-index: 5;
+	animation: show 0.6s;
+}
+
+@keyframes show {
+	0%, 49.99% {
+		opacity: 0;
+		z-index: 1;
+	}
+	
+	50%, 100% {
+		opacity: 1;
+		z-index: 5;
+	}
+}
+
+.overlay-container {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: 50%;
+	height: 100%;
+	overflow: hidden;
+	transition: transform 0.6s ease-in-out;
+	z-index: 100;
+}
+
+.container.right-panel-active .overlay-container{
+	transform: translateX(-100%);
+}
+
+.overlay {
+	background: #FF416C;
+	background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
+  background: linear-gradient(to right, #4c20b1, #a199c2);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 0 0;
+	color: #FFFFFF;
+	position: relative;
+	left: -100%;
+	height: 100%;
+	width: 200%;
+  	transform: translateX(0);
+	transition: transform 0.6s ease-in-out;
+}
+
+.container.right-panel-active .overlay {
+  	transform: translateX(50%);
+}
+
+.overlay-panel {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 0 40px;
+	text-align: center;
+	top: 0;
+	height: 100%;
+	width: 50%;
+	transform: translateX(0);
+	transition: transform 0.6s ease-in-out;
+}
+
+.overlay-left {
+	transform: translateX(-20%);
+}
+
+.container.right-panel-active .overlay-left {
+	transform: translateX(0);
+}
+
+.overlay-right {
+	right: 0;
+	transform: translateX(0);
+}
+
+.container.right-panel-active .overlay-right {
+	transform: translateX(20%);
+}
+
+.social-container {
+	margin: 20px 0;
+}
+
+.social-container a {
+	border: 1px solid #DDDDDD;
+	border-radius: 50%;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0 5px;
+	height: 40px;
+	width: 40px;
+}
+
+footer {
+    background-color: #222;
+    color: #fff;
+    font-size: 14px;
+    bottom: 0;
+    position: fixed;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 999;
+}
+
+footer p {
+    margin: 10px 0;
+}
+
+footer i {
+    color: red;
+}
+
+footer a {
+    color: #3c97bf;
+    text-decoration: none;
+}
+::ng-deep .snackbar{
+  background: #fff;
+   position: absolute;
+   top: 2%;
+   right: 2%;
+   z-index: 999999;
+}
+#background-video {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+  filter: brightness( 26% );
+}
+</style>
+<style>
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	font-family: 'Montserrat', sans-serif;
+	height: 100vh;
+	margin: -20px 0 50px;
+}
+.div-only-mobile h2 {
+   font-weight: bold;
+    margin: 0;
+    display: block;
+    font-size: 9vw;
+    margin-block-start: 3vw;
+    margin-block-end: 3vw;
+}
+
+.div-only-mobile p {
+	font-size: 14px;
+	font-weight: 100;
+	line-height: 20px;
+	letter-spacing: 0.5px;
+	margin: 2vw 0 3vw;
+}
+
+.div-only-mobile span {
+	font-size: 4vw;
+    text-decoration: none;
+    margin-top: 4vw;
+}
+
+.div-only-mobile a {
+	color: #333;
+    font-size: 4vw;
+    text-decoration: none;
+    margin-top: 1vw;
+    margin-bottom: 21%;
+}
+
+.div-only-mobile button {
+	border-radius: 1vw;
+      border: 1px solid #4c20b1;
+    background-color: #4c20b1;
+    color: #FFFFFF;
+    font-size: 4vw;
+    font-weight: bold;
+    padding: 4vw 9vw;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: transform 80ms ease-in;
+    width: 86%;
+}
+
+.div-only-mobile button:active {
+	transform: scale(0.95);
+}
+
+.div-only-mobile button:focus {
+	outline: none;
+}
+
+.div-only-mobile button.ghost {
+	background-color: transparent;
+	border-color: #FFFFFF;
+}
+
+.div-only-mobile form {
+	background-color: #FFFFFF;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 0 50px;
+	height: 100%;
+	text-align: center;
+}
+
+.div-only-mobile input {
+background-color: #eee;
+    border: none;
+    padding: 1vw 1vw;
+    margin-top: 3vw ;
+    height: 9%;
+    width: 100%;
+    font-size: 6vw;
+}
+
+.div-only-mobile .container {
+	background-color: #fff;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    width: 80%;
+    max-width: 100%;
+    min-height: 60%;
+}
+
+.div-only-mobile .form-container {
+	position: absolute;
+	top: 0;
+	height: 100%;
+	transition: all 0.6s ease-in-out;
+}
+
+.div-only-mobile .sign-in-container {
+	    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+.div-only-mobile .container.right-panel-active .sign-in-container {
+	transform: translateX(100%);
+}
+
+.div-only-mobile .sign-up-container {
+	left: 0;
+	width: 100%;
+	opacity: 1;
+	z-index: 1;
+}
+.div-only-mobile .zidex {
+	left: 0;
+	width: 100%;
+	opacity: 1;
+	z-index: 3 !important;
+}
+
+
+.div-only-mobile .container.right-panel-active .sign-up-container {
+	transform: translateX(100%);
+	opacity: 1;
+	z-index: 5;
+	animation: show 0.6s;
+}
+
+@keyframes show {
+	0%, 49.99% {
+		opacity: 0;
+		z-index: 1;
+	}
+	
+	50%, 100% {
+		opacity: 1;
+		z-index: 5;
+	}
+}
+
+.div-only-mobile .overlay-container {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: 50%;
+	height: 100%;
+	overflow: hidden;
+	transition: transform 0.6s ease-in-out;
+	z-index: 100;
+}
+
+.div-only-mobile .container.right-panel-active .overlay-container{
+	transform: translateX(-100%);
+}
+
+.div-only-mobile .overlay {
+	background: #FF416C;
+	background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
+	background: linear-gradient(to right, #FF4B2B, #FF416C);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 0 0;
+	color: #FFFFFF;
+	position: relative;
+	left: -100%;
+	height: 100%;
+	width: 200%;
+  	transform: translateX(0);
+	transition: transform 0.6s ease-in-out;
+}
+
+.div-only-mobile .container.right-panel-active .overlay {
+  	transform: translateX(50%);
+}
+
+.div-only-mobile .overlay-panel {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 0 40px;
+	text-align: center;
+	top: 0;
+	height: 100%;
+	width: 50%;
+	transform: translateX(0);
+	transition: transform 0.6s ease-in-out;
+}
+
+.div-only-mobile .overlay-left {
+	transform: translateX(-20%);
+}
+
+.div-only-mobile .container.right-panel-active .overlay-left {
+	transform: translateX(0);
+}
+
+.div-only-mobile .overlay-right {
+	right: 0;
+	transform: translateX(0);
+}
+
+.div-only-mobile .container.right-panel-active .overlay-right {
+	transform: translateX(20%);
+}
+
+.div-only-mobile .social-container {
+	margin: 20px 0;
+}
+
+.div-only-mobile .social-container a {
+	border: 1px solid #DDDDDD;
+	border-radius: 50%;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0 5px;
+	height: 40px;
+	width: 40px;
+}
+
+
+</style>
+
+<link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
+
+<link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
+
+<link rel="mask-icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" />
+
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'>
+
+<app-first></app-first>
+
+
+  <h2> </h2>
+<div *ngIf="!isMobile" #myli id="myli" style="margin-top: 94px;" class="container" id="container" >
+	<div class="form-container sign-up-container">
+		<form action="#">
+			<h1 style="margin-bottom: 20px">Criar Conta</h1>
+			<span></span>
+			<input for="firstName" type="text" class="form-control login__input" id="firstName" [(ngModel)]="firstName"
+              name="firstName"  placeholder="Nome" />
+			<input  for="lastName" type="text" class="form-control login__input" id="lastName" [(ngModel)]="lastName"
+              name="lastName"  placeholder="Sobrenome" />
+			<input for="emailreg" type="text" id="emailreg" [(ngModel)]="emailreg"
+              name="emailreg"  placeholder="Email"/>
+			<input type="Password" [(ngModel)]="passwordreg" id="passwordreg" placeholder="Enter password"
+              name="password" />
+			<button (click)="handleRegistration();" >Cadastrar</button>
+		</form>
+	</div>
+	<div  class="form-container sign-in-container">
+		<form action="#">
+			<h1  style="margin-bottom: 20px">Entrar</h1>
+			<!--<div class="social-container">
+				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+			</div> -->
+			<span> </span>
+			<input for="email" type="text"  id="username" [(ngModel)]="email"
+              name="email"  placeholder="Email" />
+			<input type="password"  [(ngModel)]="password" id="password" placeholder="Senha"
+              name="password" />
+			<a href="#">Esqueceu sua senha?</a>
+			<button  (click)=handleLogin() >Entrar</button>
+		</form>
+	</div>
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-left">
+				<h1>Bem-Vindo de volta!</h1>
+				<p>Para continuar conectado conosco, por favor faça o Login!</p>
+				<button (click)="myli.classList.remove('right-panel-active');" class="ghost" id="signIn">Login</button>
+			</div>
+			<div class="overlay-panel overlay-right">
+				<h1>Olá, Amigo!</h1>
+				<p>Ingresse seus dados pessoais e inicie sua jornada conosco</p>
+				<p>Aqui sua conta não cai!</p>
+				<button (click)="myli.classList.add('right-panel-active');"  class="ghost" id="signUp">Cadastrar-se</button>
+			</div>
+		</div>
+	</div>
+</div>
+  
+  <div *ngIf="isMobile" style="margin-top: 100px;">
+	<div class="container div-only-mobile" id="container">
+	<div #signup id="signup" class="form-container sign-up-container">
+		<form action="#">
+			<h2>Criar Conta</h2>
+			<input for="firstName" type="text" class="form-control login__input" id="firstName" [(ngModel)]="firstName"
+              name="firstName"  placeholder="Nome" />
+			<input  for="lastName" type="text" class="form-control login__input" id="lastName" [(ngModel)]="lastName"
+              name="lastName"  placeholder="Sobrenome" />
+			<input for="emailreg" type="text" id="emailreg" [(ngModel)]="emailreg"
+              name="emailreg"  placeholder="Email"/>
+			<input type="Password" [(ngModel)]="passwordreg" id="passwordreg" placeholder="Enter password"
+              name="password" />
+			<button style="margin-top: 3vw;" (click)="handleRegistration();" >Cadastrar</button>
+			<span>Já tem uma conta? <a (click)="signup.classList.remove('zidex');" style="color: #FF416C;">Entre agora</a></span>
+		</form>
+	</div>
+	<div class="form-container sign-in-container">
+		<form action="#">
+			<h2>Login</h2>
+			<input for="email" type="text"  id="username" [(ngModel)]="email"
+              name="email"  placeholder="Email" />
+			<input type="password"  [(ngModel)]="password" id="password" placeholder="Senha"
+              name="password" />
+			<a href="#">Esqueceu sua senha?</a>
+			<button  (click)=handleLogin() >Entrar</button>
+			<span>Não tem uma conta? <a (click)="signup.classList.add('zidex');"  style="color: #FF416C;">Cadastre-se</a></span>
+		</form>
+	</div>
+	
+	<!--  action z-index: 3; para aparecer singUP  -->
+        
+</div>
+  </div>
+     
+
+ 
