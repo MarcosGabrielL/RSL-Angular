@@ -3,29 +3,27 @@ import {  Component, ViewChild, ElementRef, OnInit, ViewEncapsulation } from '@a
 import {NgbModal, ModalDismissReasons, NgbModalConfig,} from '@ng-bootstrap/ng-bootstrap';
 
 import { NgxDropzoneModule } from 'ngx-dropzone';
+import { LoginService } from 'src/app/components/security/login.service';
+import { PostService } from 'src/app/components/views/index/post.service';
+import { PostImagemService } from 'src/app/components/views/index/postsservices/post-imagem.service';
+import { PostTextaoService } from 'src/app/components/views/index/postsservices/post-textao.service';
+import { Postimagem } from 'src/app/components/views/index/postsservices/sub-post.model';
+import { User } from 'src/app/components/views/profilesetting/user.model';
+import { UserService } from 'src/app/components/views/profilesetting/user.service';
 
-import { Posttext } from './postsservices/sub-post.model';
-import { Postimagem } from './postsservices/sub-post.model';
-import { PostTextaoService  } from './postsservices/post-textao.service';
-import { PostImagemService  } from './postsservices/post-imagem.service';
-import { PostService  } from './post.service';
-import { FileDB } from './post.model';
 
-import { LoginService } from './../../security/login.service';
-import { UserService } from '../profilesetting/user.service';
-import { User } from '../profilesetting/user.model';
 
 
 
 @Component({
-  selector: 'app-index',
-  templateUrl: './index.component.html',
-  styleUrls: ['./index.component.css'],
+  selector: 'app-addpost',
+  templateUrl: './addpost.component.html',
   encapsulation: ViewEncapsulation.None,
-  providers: [NgbModalConfig, NgbModal],
+  styleUrls: ['./addpost.component.css']
 })
-export class IndexComponent implements OnInit {
-  closeResult = '';
+export class AddpostComponent implements OnInit {
+
+	 closeResult = '';
  texto: string = "";
  descricao: string = "";
 
@@ -120,6 +118,7 @@ usuario: User = {"id": 0, "email": "", "password": "","firstName":"", "lastName"
                              "description": ""};
 
 
+
   constructor(private modalService: NgbModal,
   private authenticationService: LoginService,
   private userservice : UserService,
@@ -129,9 +128,9 @@ usuario: User = {"id": 0, "email": "", "password": "","firstName":"", "lastName"
   private postservice : PostService) {config.backdrop = 'static';
 		config.keyboard = false;}
 
+	
   open(content: any) {
-    this.modalService.open(content, { backdropClass: 'dark-modal', 
-    windowClass: 'tab_container' , size: 'lg' }).result.then((result) => {
+    this.modalService.open(content, { backdropClass: 'dark-modal',size: 'lg' }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
@@ -149,9 +148,6 @@ usuario: User = {"id": 0, "email": "", "password": "","firstName":"", "lastName"
       return `with: ${reason}`;
     }
 }
-
-  ngOnInit(): void {
-  }
 
 onSelect(event : any) {
   console.log(event);
@@ -204,7 +200,7 @@ onRemove(event: any) {
                            
                 console.log(this.posttext);
                 //Salva Post
-            this.posttextaoservice.create( this.posttext).subscribe((result)=> {
+            this.posttextaoservice.create( this.posttext).subscribe((result:any)=> {
                 console.log('Criado');
                 this.posttextaoservice.mensagem("Post criado com sucesso!");
                 this.getDismissReason("");
@@ -302,4 +298,8 @@ onRemove(event: any) {
 
     public PostVideo(){
     }
+
+  ngOnInit(): void {
+  }
+
 }

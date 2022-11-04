@@ -58,7 +58,7 @@ main .helper span {
   display: block;
 }
 .menu {
-  background: #e8e8e8;
+  background: #fff;
   height: 100vh;
   position: fixed;
   top: 0;
@@ -140,7 +140,7 @@ main .helper span {
 
 .br-header {
   --header-background: var(--color-secondary-01);
-  --header-shadow: var(--surface-shadow-sm);
+ 
   --header-padding: var(--header-padding-medium);
   --header-padding-small: var(--spacing-scale-base);
   --header-padding-medium: var(--spacing-scale-2x);
@@ -162,7 +162,7 @@ main .helper span {
   --header-logo-mobile-height: 40px;
   --header-sticky-z-index: var(--z-index-layer-2);
   background: var(--header-background);
-  box-shadow: var(--header-shadow);
+  
   padding: var(--header-padding) 0;
   position: relative;
 }
@@ -605,12 +605,12 @@ main .helper span {
 
   
 <div style="background: rgb(244,244,244);"> 
-<header class="br-header" style="margin-left: 1% !important;">
+<header class="br-header" style="margin: 0; box-shadow: none;">
   <div class="container-lg">
     <div class="header-top">
       <div class="header-logo">
       <div class=" has-icon">
-      <button class="br-button circle small" type="button" aria-label="Pesquisar"><i class="fas fa-search" aria-hidden="true"></i>
+      <button class="br-button circle small"  style="color: #ff6d00 !important;" type="button" aria-label="Pesquisar"><i class="fas fa-search" aria-hidden="true"></i>
           </button>
           <input style="outline: none !important; width: 28vw;" id="searchbox-64881" type="text" placeholder="O que você procura?"/>
           
@@ -646,7 +646,7 @@ main .helper span {
               </button>
             </div>
             <div class="align-items-center br-item">
-              <button class="br-button circle small" type="button" aria-label="Funcionalidade 4"><i class="fas fa-adjust" aria-hidden="true"></i><span class="text">Funcionalidade 4</span>
+              <button class="br-button circle small" type="button" aria-label="Funcionalidade 4"><i class="fas fa-bell" aria-hidden="true"></i><span class="text">Funcionalidade 4</span>
               </button>
             </div>
           </div>
@@ -655,10 +655,51 @@ main .helper span {
           <button class="br-button circle" type="button" aria-label="Abrir Busca" data-toggle="search" data-target=".header-search"><i class="fas fa-comment" aria-hidden="true"></i>
           </button>
         </div>
-        <div class="header-login">
+        <div class="header-login" >
           <div class="header-sign-in">
-            <button (click)="open(content)" class="br-sign-in small" type="button" data-trigger="login"><i class="fas fa-plus" aria-hidden="true"></i><span class="d-sm-inline">Post</span>
+          <div class="dropdown" style="display: none;">
+            <button class=" dropdown-toggle br-sign-in small" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-plus" aria-hidden="true"></i><span class="d-sm-inline">Post</span>
             </button>
+             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
+  </div>
+  </div>
+  
+  
+  <style></style>
+  
+  <div class="d-inline-block " ngbDropdown #myDrop="ngbDropdown">
+	<button
+		type="button"
+		class="btn btn-outline-primary shadow-none me-2 br-sign-in small"
+		id="dropdownManual"
+		ngbDropdownAnchor
+		(focus)="myDrop.open()"
+		style="border: 0;"
+	>
+		<a class="d-sm-inline"><i class="fas fa-plus" aria-hidden="true"></i></a>
+             
+	</button>
+	<div ngbDropdownMenu aria-labelledby="dropdownManual">
+		<button ngbDropdownItem (click)="open(content)"><i class="fa fa-camera-retro"></i><span> &nbsp;Foto(s) </span></button>
+		<button ngbDropdownItem><i class="fa fa-bar-chart-o"></i><span>Enquetes</span></button>
+		<button ngbDropdownItem><i class="fa fa-video-camera"></i><span>Video(s)</span></button>
+	    <button ngbDropdownItem><i class="fa fa-mobile"></i><span> &nbsp;Status&nbsp; </span></button>
+	   <button ngbDropdownItem><i class="fa fa fa-align-left"></i><span>&nbsp; Textão </span></button>
+	
+	</div>
+</div>
+  
+  
+  
+  
+  
+  
+  
+  
           </div>
           <div class="header-avatar d-none">
             <div class="avatar dropdown"><span class="br-avatar" title="Fulana da Silva"><span class="image"><img src="https://picsum.photos/id/823/400" alt="Avatar"/></span></span>
@@ -721,10 +762,8 @@ main .helper span {
   <div class="menu" style="width: 64px;
     max-width: 64px;
     min-width: 64px;">
-    <a class="flex items-center justify-center mt-3" href="#">
-      <svg class="w-8 h-8 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-        <path d="M11 17a1 1 0 001.447.894l4-2A1 1 0 0017 15V9.236a1 1 0 00-1.447-.894l-4 2a1 1 0 00-.553.894V17zM15.211 6.276a1 1 0 000-1.788l-4.764-2.382a1 1 0 00-.894 0L4.789 4.488a1 1 0 000 1.788l4.764 2.382a1 1 0 00.894 0l4.764-2.382zM4.447 8.342A1 1 0 003 9.236V15a1 1 0 00.553.894l4 2A1 1 0 009 17v-5.764a1 1 0 00-.553-.894l-4-2z" />
-      </svg>
+    <a class="flex items-center justify-center mt-1" href="#">
+      <a href=""><img src="https://i.ibb.co/R2p7jZr/ki.png" alt="ki" border="0"></a>
     </a>
     <div style="border-top: 0;" class="flex flex-col items-center mt-3 border-t border-gray-300">
       <a #m1  class="flex items-center justify-center w-12 h-12 mt-2 rounded hover:bg-gray-300 bg-gray-300" 
@@ -845,7 +884,7 @@ main .helper span {
       </a>
     </div>
     
-     <a style="color: #FF4B2B; bottom: 0px;  position: absolute;" class="flex items-center justify-center w-16 h-16 mt-auto bg-gray-200 hover:bg-gray-300" href="#">
+     <a style="color:#ff6d00 !important; bottom: 0px;  position: absolute;" class="flex items-center justify-center w-16 h-16 mt-auto bg-white-200 hover:bg-gray-300" href="#">
         <svg class="w-6 h-6 stroke-current" fill="none" viewBox="0 0 38 38" stroke="currentColor" enable-background="new 0 0 32 32" id="Layer_4" version="1.1" viewBox="0 0 32 32" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <g><line fill="none" stroke="#f01826" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" x1="28" x2="1" y1="16" y2="16"/><polyline fill="none" points="7,22 1,16 7,10     " stroke="#f01826" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9,8V3   c0-1.105,0.895-2,2-2h18c1.105,0,2,0.895,2,2v26c0,1.105-0.895,2-2,2H11c-1.105,0-2-0.895-2-2v-5" fill="none" stroke="#f01826" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"/></g></svg>
      </a>
@@ -909,7 +948,7 @@ main .helper span {
 
 <main>
   <div class="helper" style="background: transparent;">
-      <div style=" width: 100%; background: transparent;"><!--  style="width: 92%; margin-left: 96px;  background: transparent;"> -->
+      <div style=" width: 100%; margin-left: 5%; padding-right: 5%; background: transparent;"><!--  style="width: 92%; margin-left: 96px;  background: transparent;"> -->
           <div #feed class="">
             <div class="row">
                 <div class="col-lg-12 layout-spacing">
@@ -924,56 +963,56 @@ main .helper span {
                                             <div class="single-create-story">
                                                 <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="single-create-story-bg" style="filter: brightness( 26% );height: 100%; ">
                                                 <div class="create-story-author" style="position: absolute; top: 27%; right: 18%;">
-                                                    <i class="fa fa-plus-circle fa-2x text-info"></i>
+                                                    <i style="color: #ff6d00 !IMPORTANT;" class="fa fa-plus-circle fa-2x text-info"></i>
                                                     <p>Create a story</p>
                                                 </div>
                                             </div>
                                             <div class="single-story">
-                                                <img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="single-story-bg">
+                                                <img src="https://i.ibb.co/m999z1r/Whats-App-Image-2022-11-04-at-16-22-43.jpg" class="single-story-bg">
                                                 <div class="story-author">
-                                                    <img src="https://bootdey.com/img/Content/avatar/avatar2.png">
+                                                    <img src="https://i.ibb.co/m999z1r/Whats-App-Image-2022-11-04-at-16-22-43.jpg">
                                                     <p>John</p>
                                                 </div>
                                             </div>
                                             <div class="single-story">
-                                                <img src="https://bootdey.com/img/Content/avatar/avatar3.png" class="single-story-bg">
+                                                <img src="https://i.ibb.co/Zg02GBR/Whats-App-Image-2022-11-04-at-16-23-21.jpg" class="single-story-bg">
                                                 <div class="story-author">
-                                                    <img src="https://bootdey.com/img/Content/avatar/avatar3.png">
+                                                    <img src="https://i.ibb.co/Zg02GBR/Whats-App-Image-2022-11-04-at-16-23-21.jpg">
                                                     <p>Mike</p>
                                                 </div>
                                             </div>
                                             <div class="single-story">
-                                                <img src="https://bootdey.com/img/Content/avatar/avatar4.png" class="single-story-bg">
+                                                <img src="https://i.ibb.co/fMWQGn8/image-processing20200201-29235-rw345q.jpg" class="single-story-bg">
                                                 <div class="story-author">
-                                                    <img src="https://bootdey.com/img/Content/avatar/avatar4.png">
+                                                    <img src="https://i.ibb.co/fMWQGn8/image-processing20200201-29235-rw345q.jpg">
                                                     <p>Lisa</p>
                                                 </div>
                                             </div>
                                             <div class="single-story">
-                                                <img src="https://bootdey.com/img/Content/avatar/avatar6.png" class="single-story-bg">
+                                                <img src="https://i.ibb.co/84zy9tW/site-vacinacao-33-anos.png" class="single-story-bg">
                                                 <div class="story-author">
-                                                    <img src="https://bootdey.com/img/Content/avatar/avatar6.png">
+                                                    <img src="https://i.ibb.co/84zy9tW/site-vacinacao-33-anos.png">
                                                     <p>Jonthy</p>
                                                 </div>
                                             </div>
                                             <div class="single-story">
-                                                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" class="single-story-bg">
+                                                <img src="https://i.ibb.co/X7j555C/Whats-App-Image-2022-11-04-at-16-23-07.jpg" class="single-story-bg">
                                                 <div class="story-author">
-                                                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png">
+                                                    <img src="https://i.ibb.co/X7j555C/Whats-App-Image-2022-11-04-at-16-23-07.jpg">
                                                     <p>Steve</p>
                                                 </div>
                                             </div>
                                             <div class="single-story">
-                                                <img src="https://bootdey.com/img/Content/avatar/avatar8.png" class="single-story-bg">
+                                                <img src="https://i.ibb.co/TLbVj95/images-1.jpg" class="single-story-bg">
                                                 <div class="story-author">
-                                                    <img src="https://bootdey.com/img/Content/avatar/avatar8.png">
+                                                    <img src="https://i.ibb.co/TLbVj95/images-1.jpg">
                                                     <p>Jenni</p>
                                                 </div>
                                             </div>
                                             <div class="single-story">
-                                                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="single-story-bg">
+                                                <img src="https://i.ibb.co/fMWQGn8/image-processing20200201-29235-rw345q.jpg" class="single-story-bg">
                                                 <div class="story-author">
-                                                    <img src="https://bootdey.com/img/Content/avatar/avatar1.png">
+                                                    <img src="https://i.ibb.co/fMWQGn8/image-processing20200201-29235-rw345q.jpg">
                                                     <p>Sagarika</p>
                                                 </div>
                                             </div>
@@ -1045,27 +1084,27 @@ main .helper span {
                            <li
                               class="clearfix">
                               <img
-                                 src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="avatar">
+                                 src="https://i.ibb.co/fMWQGn8/image-processing20200201-29235-rw345q.jpg" alt="avatar">
                               <div
                                  class="about">
                                  <div
                                     class="name">Vincent Porter</div>
                                  <div
                                     class="status"> <i
-                                    class="fa fa-circle offline"></i> left 7 mins ago</div>
+                                    class="fa fa-circle text-danger"></i> left 7 mins ago</div>
                               </div>
                            </li>
                            <li
                               class="clearfix">
                               <img
-                                 src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="avatar">
+                                 src="https://i.ibb.co/X7j555C/Whats-App-Image-2022-11-04-at-16-23-07.jpg" alt="avatar">
                               <div
                                  class="about">
                                  <div
                                     class="name">Aiden Chavez</div>
                                  <div
                                     class="status"> <i
-                                    class="fa fa-circle online"></i> online</div>
+                                    class="fa fa-circle text-success"></i> online</div>
                               </div>
                            </li>
                            <li
@@ -1078,7 +1117,7 @@ main .helper span {
                                     class="name">Mike Thomas</div>
                                  <div
                                     class="status"> <i
-                                    class="fa fa-circle online"></i> online</div>
+                                    class="fa fa-circle text-success"></i> online</div>
                               </div>
                            </li>
                            <li
@@ -1091,7 +1130,7 @@ main .helper span {
                                     class="name">Christian Kelly</div>
                                  <div
                                     class="status"> <i
-                                    class="fa fa-circle offline"></i> left 10 hours ago</div>
+                                    class="fa fa-circle text-danger"></i> left 10 hours ago</div>
                               </div>
                            </li>
                            <li
@@ -1104,7 +1143,7 @@ main .helper span {
                                     class="name">Monica Ward</div>
                                  <div
                                     class="status"> <i
-                                    class="fa fa-circle online"></i> online</div>
+                                    class="fa fa-circle text-success"></i> online</div>
                               </div>
                            </li>
                            <li
@@ -1117,7 +1156,7 @@ main .helper span {
                                     class="name">Dean Henry</div>
                                  <div
                                     class="status"> <i
-                                    class="fa fa-circle offline"></i> offline since Oct 28</div>
+                                    class="fa fa-circle text-danger"></i> offline since Oct 28</div>
                               </div>
                            </li>
                              <li
@@ -1130,7 +1169,7 @@ main .helper span {
                                     class="name">Vincent Porter</div>
                                  <div
                                     class="status"> <i
-                                    class="fa fa-circle offline"></i> left 7 mins ago</div>
+                                    class="fa fa-circle text-danger"></i> left 7 mins ago</div>
                               </div>
                            </li>
                            <li
@@ -1143,7 +1182,7 @@ main .helper span {
                                     class="name">Aiden Chavez</div>
                                  <div
                                     class="status"> <i
-                                    class="fa fa-circle online"></i> online</div>
+                                    class="fa fa-circle text-success"></i> online</div>
                               </div>
                            </li>
                            <li
@@ -1156,7 +1195,7 @@ main .helper span {
                                     class="name">Mike Thomas</div>
                                  <div
                                     class="status"> <i
-                                    class="fa fa-circle online"></i> online</div>
+                                    class="fa fa-circle text-success"></i> online</div>
                               </div>
                            </li>
                            <li
@@ -1169,7 +1208,7 @@ main .helper span {
                                     class="name">Christian Kelly</div>
                                  <div
                                     class="status"> <i
-                                    class="fa fa-circle offline"></i> left 10 hours ago</div>
+                                    class="fa fa-circle text-danger"></i> left 10 hours ago</div>
                               </div>
                            </li>
                            <li
@@ -1182,7 +1221,7 @@ main .helper span {
                                     class="name">Monica Ward</div>
                                  <div
                                     class="status"> <i
-                                    class="fa fa-circle online"></i> online</div>
+                                    class="fa fa-circle text-success"></i> online</div>
                               </div>
                            </li>
                            <li
@@ -1195,7 +1234,7 @@ main .helper span {
                                     class="name">Dean Henry</div>
                                  <div
                                     class="status"> <i
-                                    class="fa fa-circle offline"></i> offline since Oct 28</div>
+                                    class="fa fa-circle text-danger"></i> offline since Oct 28</div>
                               </div>
                            </li>
                         </ul>
@@ -1346,7 +1385,7 @@ img.single-create-story-bg {
     bottom: 0;
     right: 0;
     left: 0;
-    background-image: linear-gradient(rgb(255 0 0 / 0%), black);
+    background-image: linear-gradient(rgb(255 0 0 / 0%), rgb(76 32 177 / 75%));
 }
 img.single-story-bg {
     width: 100%;
@@ -1764,32 +1803,28 @@ label .fa {
 z-index: 50 !important;
 				background-color: #4c20b1 !important;
 			}
+			
+#tab1:checked ~ #content1,
+#tab2:checked ~ #content2,
+#tab3:checked ~ #content3,
+#tab4:checked ~ #content4,
+#tab5:checked ~ #content5 {
+  display: block;
+  padding: 20px;
+  background: #fff;
+  color: #999;
+  border-bottom: 2px solid #f0f0f0;
+}
              </style>
              
              
              <ng-template  #content  let-c="close" let-d="dismiss" style=" max-width: 75%; width: 75%;">
-        <div class="modal-header">
-		<h4 class="modal-title" >Modal title</h4>
-		<button type="button" class="btn-close" aria-label="Close" (click)="close(content)">FEchar</button>
-	</div>
+             
+             
+        
   <div class="modal-body">
     
-		<div class="tab_container">
-			<input id="tab1" type="radio" name="tabs" checked>
-                        <label for="tab1"><i class="fa fa fa-align-left"></i><span>&nbsp; Textão </span></label>
-
-			<input id="tab2" type="radio" name="tabs">
-			<label for="tab2"><i class="fa fa-camera-retro"></i><span> &nbsp;Foto(s) </span></label>
-
-			<input id="tab3" type="radio" name="tabs">
-			<label for="tab3"><i class="fa fa-bar-chart-o"></i><span>Enquetes</span></label>
-
-			<input id="tab4" type="radio" name="tabs">
-			<label for="tab4"><i class="fa fa-video-camera"></i><span>Video(s)</span></label>
-
-			<input id="tab5" type="radio" name="tabs">
-			<label for="tab5"><i class="fa fa-mobile"></i><span> &nbsp;Status&nbsp; </span></label>
-
+		
 			<section id="content1" class="tab-content">
                                  <div
                                     class="panel-body">
@@ -1806,183 +1841,7 @@ z-index: 50 !important;
                                  </div>
 			</section>
 
-			<section id="content2" class="tab-content">
-				 <form class="form-horizontal" role="form">
-									
-					<ngx-dropzone (change)="onSelect($event)">
-						<ngx-dropzone-label>Drop it, baby!</ngx-dropzone-label>
-						<ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f">
-						  <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
-						</ngx-dropzone-image-preview>
-					</ngx-dropzone>
-                    <a>Legenda:</a>
-                     <div class="panel-body">
-                                    <textarea class="form-control" rows="5" placeholder=""
-                                    for="texto" id="texto" [(ngModel)]="descricao" name="texto"></textarea>
-                      </div>
-                      <a>Hastags:</a>
-                      <div class="panel-body">
-                                    <textarea class="form-control" rows="1" placeholder=""
-                                    for="texto" id="texto" [(ngModel)]="descricao" name="texto"></textarea>
-                      </div>
-                     <div
-                        class="form-group">
-                        <a>Localização</a>
-                        <div
-                           class="col-lg-8">
-                           <div
-                              class="ui-select">
-                              <select
-                                 id="user_time_zone" class="form-control">
-                                 <option
-                                    value="Hawaii">(GMT-10:00) Hawaii</option>
-                                 <option
-                                    value="Alaska">(GMT-09:00) Alaska</option>
-                                 <option
-                                    value="Pacific Time (US &amp; Canada)">(GMT-08:00) Pacific Time (US &amp; Canada)</option>
-                                 <option
-                                    value="Arizona">(GMT-07:00) Arizona</option>
-                                 <option
-                                    value="Mountain Time (US &amp; Canada)">(GMT-07:00) Mountain Time (US &amp; Canada)</option>
-                                 <option
-                                    value="Central Time (US &amp; Canada)" selected="selected">(GMT-06:00) Central Time (US &amp; Canada)</option>
-                                 <option
-                                    value="Eastern Time (US &amp; Canada)">(GMT-05:00) Eastern Time (US &amp; Canada)</option>
-                                 <option
-                                    value="Indiana (East)">(GMT-05:00) Indiana (East)</option>
-                              </select>
-                           </div>
-                        </div>
-                     </div>
-                  </form>
-                  <div
-                                       class="mar-top clearfix"> <button (click)="PostImagem();"
-                                       class="btn btn-sm btn-primary pull-right" type="submit"><i
-                                       class="fa fa-pencil fa-fw"></i> Share</button> <a
-                                       class="btn btn-trans btn-icon fa fa-video-camera add-tooltip" href="#" data-original-title="Add Video" data-toggle="tooltip"></a> <a
-                                       class="btn btn-trans btn-icon fa fa-camera add-tooltip" href="#" data-original-title="Add Photo" data-toggle="tooltip"></a> <a
-                                       class="btn btn-trans btn-icon fa fa-file add-tooltip" href="#" data-original-title="Add File" data-toggle="tooltip"></a><a
-                                       class="btn btn-trans btn-icon fa fa-align-left add-tooltip" href="#" data-original-title="Add File" data-toggle="tooltip"></a></div>
-			</section>
-
-			<section id="content3" class="tab-content">
-				<h3>Headline 3</h3>
-		      	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-		      	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		      	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-		      	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-		      	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-		      	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-		      	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-		      	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		      	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-		      	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-		      	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-		      	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-			</section>
-
-			<section id="content4" class="tab-content">
-				<form class="form-horizontal" role="form">
-									
-					<ngx-dropzone (change)="onSelect($event)">
-						<ngx-dropzone-label>Drop it, baby!</ngx-dropzone-label>
-						<ngx-dropzone-video-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f">
-						  <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
-						</ngx-dropzone-video-preview>
-					</ngx-dropzone>
-                    <a>Legenda:</a>
-                     <div class="panel-body">
-                                    <textarea class="form-control" rows="5" placeholder=""
-                                    for="texto" id="texto" [(ngModel)]="descricao" name="texto"></textarea>
-                      </div>
-                      <a>Hastags:</a>
-                      <div class="panel-body">
-                                    <textarea class="form-control" rows="1" placeholder=""
-                                    for="texto" id="texto" [(ngModel)]="descricao" name="texto"></textarea>
-                      </div>
-                     <div
-                        class="form-group">
-                        <a>Localização</a>
-                        <div
-                           class="col-lg-8">
-                           <div
-                              class="ui-select">
-                              <select
-                                 id="user_time_zone" class="form-control">
-                                 <option
-                                    value="Hawaii">(GMT-10:00) Hawaii</option>
-                                 <option
-                                    value="Alaska">(GMT-09:00) Alaska</option>
-                                 <option
-                                    value="Pacific Time (US &amp; Canada)">(GMT-08:00) Pacific Time (US &amp; Canada)</option>
-                                 <option
-                                    value="Arizona">(GMT-07:00) Arizona</option>
-                                 <option
-                                    value="Mountain Time (US &amp; Canada)">(GMT-07:00) Mountain Time (US &amp; Canada)</option>
-                                 <option
-                                    value="Central Time (US &amp; Canada)" selected="selected">(GMT-06:00) Central Time (US &amp; Canada)</option>
-                                 <option
-                                    value="Eastern Time (US &amp; Canada)">(GMT-05:00) Eastern Time (US &amp; Canada)</option>
-                                 <option
-                                    value="Indiana (East)">(GMT-05:00) Indiana (East)</option>
-                              </select>
-                           </div>
-                        </div>
-                     </div>
-                  </form>
-			</section>
-
-			<section id="content5" class="tab-content">
-				<form class="form-horizontal" role="form">
-									
-					<ngx-dropzone (change)="onSelect($event)">
-						<ngx-dropzone-label>Drop it, baby!</ngx-dropzone-label>
-						<ngx-dropzone-video-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f">
-						  <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
-						</ngx-dropzone-video-preview>
-					</ngx-dropzone>
-                    <a>Legenda:</a>
-                     <div class="panel-body">
-                                    <textarea class="form-control" rows="5" placeholder=""
-                                    for="texto" id="texto" [(ngModel)]="descricao" name="texto"></textarea>
-                      </div>
-                      <a>Hastags:</a>
-                      <div class="panel-body">
-                                    <textarea class="form-control" rows="1" placeholder=""
-                                    for="texto" id="texto" [(ngModel)]="descricao" name="texto"></textarea>
-                      </div>
-                     <div
-                        class="form-group">
-                        <a>Localização</a>
-                        <div
-                           class="col-lg-8">
-                           <div
-                              class="ui-select">
-                              <select
-                                 id="user_time_zone" class="form-control">
-                                 <option
-                                    value="Hawaii">(GMT-10:00) Hawaii</option>
-                                 <option
-                                    value="Alaska">(GMT-09:00) Alaska</option>
-                                 <option
-                                    value="Pacific Time (US &amp; Canada)">(GMT-08:00) Pacific Time (US &amp; Canada)</option>
-                                 <option
-                                    value="Arizona">(GMT-07:00) Arizona</option>
-                                 <option
-                                    value="Mountain Time (US &amp; Canada)">(GMT-07:00) Mountain Time (US &amp; Canada)</option>
-                                 <option
-                                    value="Central Time (US &amp; Canada)" selected="selected">(GMT-06:00) Central Time (US &amp; Canada)</option>
-                                 <option
-                                    value="Eastern Time (US &amp; Canada)">(GMT-05:00) Eastern Time (US &amp; Canada)</option>
-                                 <option
-                                    value="Indiana (East)">(GMT-05:00) Indiana (East)</option>
-                              </select>
-                           </div>
-                        </div>
-                     </div>
-                  </form>
-			</section>
-		</div>
+			
 
   </div>
   <div class="modal-footer">

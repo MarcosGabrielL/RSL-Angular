@@ -44,6 +44,7 @@ import { GridlistComponent } from './components/views/gridlist/gridlist.componen
 import { EmailverificationComponent } from './components/security/emailverification/emailverification.component';
 import { ResetpassemailComponent } from './components/security/resetpassemail/resetpassemail.component';
 import { ResetpassnewComponent } from './components/security/resetpassnew/resetpassnew.component';
+import { AddpostComponent } from './components/template/modal/addpost/addpost.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,8 @@ import { ResetpassnewComponent } from './components/security/resetpassnew/resetp
     GridlistComponent,
     EmailverificationComponent,
     ResetpassemailComponent,
-    ResetpassnewComponent
+    ResetpassnewComponent,
+    AddpostComponent
   ],
   imports: [
     BrowserModule,
