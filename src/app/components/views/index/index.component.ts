@@ -1,6 +1,6 @@
-import {  Component, ViewChild, ElementRef, OnInit } from '@angular/core';
+import {  Component, ViewChild, ElementRef, OnInit, ViewEncapsulation } from '@angular/core';
 
-import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import {NgbModal, ModalDismissReasons, NgbModalConfig,} from '@ng-bootstrap/ng-bootstrap';
 
 import { NgxDropzoneModule } from 'ngx-dropzone';
 
@@ -15,15 +15,21 @@ import { LoginService } from './../../security/login.service';
 import { UserService } from '../profilesetting/user.service';
 import { User } from '../profilesetting/user.model';
 
+
+
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
-  styleUrls: ['./index.component.css']
+  styleUrls: ['./index.component.css'],
+  encapsulation: ViewEncapsulation.None,
+  providers: [NgbModalConfig, NgbModal],
 })
 export class IndexComponent implements OnInit {
   closeResult = '';
  texto: string = "";
  descricao: string = "";
+
+ 
 
 files: File[] = [];
 hora: string = "";
@@ -119,16 +125,20 @@ usuario: User = {"id": 0, "email": "", "password": "","firstName":"", "lastName"
   private userservice : UserService,
   private posttextaoservice : PostTextaoService,
   private postimagemservice : PostImagemService,
-  private postservice : PostService) {}
+  config: NgbModalConfig,
+  private postservice : PostService) {config.backdrop = 'static';
+		config.keyboard = false;}
 
   open(content: any) {
-    this.modalService.open(content, { size: 'lg' }).result.then((result) => {
+    this.modalService.open(content, { backdropClass: 'dark-modal',size: 'lg' }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
   }
-
+  close(content: any) {
+  this.modalService.dismissAll();
+  }
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
       return 'by pressing ESC';
