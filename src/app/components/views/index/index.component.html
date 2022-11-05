@@ -685,8 +685,8 @@ main .helper span {
 	</button>
 	<div ngbDropdownMenu aria-labelledby="dropdownManual">
 		<button ngbDropdownItem (click)="open(contentfotos)"><i class="fa fa-camera-retro"></i><span> &nbsp;Foto(s) </span></button>
-		<button ngbDropdownItem (click)="open(contentenquete)"><i class="fa fa-bar-chart-o"></i><span>Enquetes</span></button>
-		<button ngbDropdownItem (click)="open(contentvideos)"><i class="fa fa-video-camera"></i><span>Video(s)</span></button>
+		<button ngbDropdownItem (click)="open(contentenquete)"><i class="fa fa-bar-chart-o"></i><span> &nbsp;Enquetes</span></button>
+		<button ngbDropdownItem (click)="open(contentvideos)"><i class="fa fa-video-camera"></i><span> &nbsp;Video(s)</span></button>
 	    <button ngbDropdownItem (click)="open(contentstatus)"><i class="fa fa-mobile"></i><span> &nbsp;Status&nbsp; </span></button>
 	   <button ngbDropdownItem (click)="open(content)"><i class="fa fa fa-align-left"></i><span>&nbsp; Textão </span></button>
 	
@@ -1804,7 +1804,7 @@ label .fa {
 
 .dark-modal {
 z-index: 50 !important;
-				background-color: #4c20b1 !important;
+				background-color: #4C2051 !important;
 			}
 			
 #tab1:checked ~ #content1,
@@ -1865,7 +1865,7 @@ z-index: 50 !important;
 </ng-template>
 
 <ng-template #contentenquete let-c="close" let-d="dismiss"
-	style=" max-width: 75%; width: 75%;">
+	>
 
 <div class="modal-header">
         <h5 class="modal-title"><i class="fa fa-bar-chart-o"></i><span>Enquetes</span></h5>

@@ -137,7 +137,7 @@ usuario: User = {"id": 0, "email": "", "password": "","firstName":"", "lastName"
 
   open(content: any) {
     this.modalService.open(content, { backdropClass: 'dark-modal', 
-    windowClass: 'tab_container' , size: 'lg' }).result.then((result) => {
+    windowClass: 'tab_container' }).result.then((result) => { //, size: 'lg' 
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
