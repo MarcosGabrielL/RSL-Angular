@@ -14,6 +14,9 @@ import { FileDB } from './post.model';
 import { LoginService } from './../../security/login.service';
 import { UserService } from '../profilesetting/user.service';
 import { User } from '../profilesetting/user.model';
+import { FileService } from './postservices/file.service';
+import { FileDetails } from './postservices/file.model';
+import { HttpEventType, HttpResponse } from '@angular/common/http';
 
 
 
@@ -32,6 +35,8 @@ export class IndexComponent implements OnInit {
  
 
 files: File[] = [];
+ uploadedFiles: FileDetails[] = [];
+  showProgress = false;
 hora: string = "";
 email: string = "";
 idperson: string = "";
@@ -126,6 +131,7 @@ usuario: User = {"id": 0, "email": "", "password": "","firstName":"", "lastName"
   private posttextaoservice : PostTextaoService,
   private postimagemservice : PostImagemService,
   config: NgbModalConfig,
+    private fileService: FileService,
   private postservice : PostService) {config.backdrop = 'static';
 		config.keyboard = false;}
 
@@ -153,10 +159,7 @@ usuario: User = {"id": 0, "email": "", "password": "","firstName":"", "lastName"
   ngOnInit(): void {
   }
 
-onSelect(event : any) {
-  console.log(event);
-  this.files.push(...event.addedFiles);
-}
+
 
 onRemove(event: any) {
   console.log(event);
@@ -206,11 +209,11 @@ onRemove(event: any) {
                 //Salva Post
             this.posttextaoservice.create( this.posttext).subscribe((result)=> {
                 console.log('Criado');
-                this.posttextaoservice.mensagem("Post criado com sucesso!");
-                this.getDismissReason("");
+                this.authenticationService.mensagem("Post criado com sucesso!");
+                 this.modalService.dismissAll();
                
             }, () => {
-                this.posttextaoservice.mensagem("Erro ao Postar!");
+                this.authenticationService.mensagem("Erro ao Postar!");
              }); 
                }); 
 
@@ -243,11 +246,13 @@ onRemove(event: any) {
                                     //    this.cinefilo = Object.values(resposta);
                                       //  console.log(this.cinefilo);
                                 //});
-                   
 
-            
-
-           //Peva valores do form e envia
+			//Verifica se existe imagens
+			 if(this.files.length == 0){
+          this.authenticationService.mensagem("Imagem(s) não encontradas!");
+        }else{
+	
+			//Peva valores do form e envia
             this.postimagem= {"id": 0,
                             "idperson": this.idperson,
                             "texto": this.texto,
@@ -262,11 +267,16 @@ onRemove(event: any) {
                            
                 console.log(this.postimagem);
                 //Salva Post
-    if(this.files.length > 0){
+             
+             
+             if(this.files.length > 0){
             this.postimagemservice.create(this.postimagem).subscribe((result: Postimagem)=> {
                   console.log('Posted');
+                  //console.log(result);
 
-                        this.postservice.UploadFiles( this.files[0], this.postimagem.idperson).subscribe((result: any)=> {
+						this.uploadImagem( result.id);
+
+                      /*  this.postservice.UploadFiles( ).subscribe((result: any)=> {
                               console.log(result);
                               console.log('File UpLoaded');
                                   this.postimagemservice.mensagem("Post criado com sucesso!");
@@ -274,15 +284,13 @@ onRemove(event: any) {
                              }, (error: any) => {console.log(error);
                                 console.log('Erro Upload');
                                   this.postimagemservice.mensagem("Erro ao Postar!");
-                              }); 
+                              }); */
 
             }, () => {
                 this.postimagemservice.mensagem("Erro ao Postar!");
              }); 
-
+           }                   
             
-
-                             
                          
 
              }
@@ -302,4 +310,69 @@ onRemove(event: any) {
 
     public PostVideo(){
     }
+    
+    selectFile(event: any) {
+     this.files = [];
+  console.log(event.addedFiles.size);
+  this.files.push(...event.addedFiles);
+  if(this.files[0].size >=1000000){
+        this.authenticationService.mensagem("Arquivo Muito Grande");
+         this.files = [];
+  }else{
+    this.files = [];
+  this.files.push(...event.addedFiles);
+    }
+  }
+  
+  onSelect(event : any) {
+  this.files = [];
+  console.log(event.addedFiles.size);
+  this.files.push(...event.addedFiles);
+  if(this.files[0].size >=1000000){
+        this.authenticationService.mensagem("Arquivo Muito Grande");
+         this.files = [];
+  }else{
+    this.files = [];
+  this.files.push(...event.addedFiles);
+    }
+}
+    
+     uploadImagem(idPost: any) {
+    this.showProgress = true;
+    this.uploadedFiles = [];
+    Array.from(this.files).forEach(file => {
+      
+      console.log(file);
+
+      const mimeType = file.type;
+    if (mimeType.match(/image\/*/) == null) {
+         this.authenticationService.mensagem("Only images are supported.");
+        return;
+    }
+
+      this.fileService.uploadSingleFile_Post(file, idPost).subscribe(event => {
+        if (event.type === HttpEventType.UploadProgress) {
+           // calculate the progress percentage
+//
+          console.log("Aqui");
+          let aqui: number = event!.total;
+            this.authenticationService.mensagem('Salvando Imagens: '+Math.round((100 * event.loaded) / aqui) + '%...');
+          //const percentDone = Math.round((100 * event.loaded) / event.total);
+          // pass the percentage into the progress-stream
+        //  progress.next(percentDone);
+        } else if (event instanceof HttpResponse) {
+          // Close the progress-stream if we get an answer form the API
+          // The upload is complete
+          //progress.complete();
+          console.log("Foi");
+          //this.router.navigate(['/produtos/home']); 
+          this.modalService.dismissAll();
+        }
+
+      }, () => {
+                console.log("Não foi:"+event);
+              });
+    });
+     
+  }
 }

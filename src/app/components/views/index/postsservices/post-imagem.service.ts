@@ -34,7 +34,7 @@ export class PostImagemService {
 
     create(postimagem: Postimagem): Observable<Postimagem>{
 
-        const url = `${this.baseUrlPost}/imagens/postimagem/add`
+        const url = `${this.baseUrlPost}/imagens/imagem/add`
         return this.http.post<Postimagem>(url, postimagem);
     }
   
